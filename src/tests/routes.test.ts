@@ -4,14 +4,22 @@ import { absoluteUrl, withBase } from "../lib/urls";
 
 describe("routes and SEO helpers", () => {
   it("inclui todas as rotas principais solicitadas", () => {
-    expect(allRoutes).toContain("/para-integradores/");
-    expect(allRoutes).toContain("/politica-de-privacidade/");
+    expect(allRoutes).toContain("/servicos/");
+    expect(allRoutes).toContain("/servicos/engenharia-projetos-eletricos/");
+    expect(allRoutes).toContain("/servicos/consultoria-tecnico-regulatoria/");
+    expect(allRoutes).toContain("/servicos/pericias-pareceres-tecnicos/");
+    expect(allRoutes).toContain("/conteudos/");
     expect(allRoutes).toContain("/a-conexium/");
-    expect(allRoutes).toContain("/versoes/");
-    expect(allRoutes).toContain("/versao-atual/");
-    expect(allRoutes).toContain("/versao-anterior/");
-    expect(servicePages.map((service) => service.slug)).toContain("consultoria-regulatoria");
-    expect(servicePages.map((service) => service.slug)).toContain("pericias-quesitos-pareceres");
+    expect(allRoutes).toContain("/contato/");
+    expect(allRoutes).toContain("/politica-de-privacidade/");
+    expect(allRoutes).toContain("/politica-de-cookies/");
+    expect(allRoutes).toContain("/404/");
+    expect(servicePages).toHaveLength(3);
+    expect(servicePages.map((service) => service.slug)).toEqual([
+      "engenharia-projetos-eletricos",
+      "consultoria-tecnico-regulatoria",
+      "pericias-pareceres-tecnicos",
+    ]);
   });
 
   it("gera URLs com base técnica e domínio canônico da Conexium", () => {

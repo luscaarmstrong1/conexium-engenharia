@@ -3,17 +3,11 @@ import { formatPhone, scoreLead, sanitizeText, validateLead } from "../lib/forms
 
 const valid = {
   nome: "Lucas",
-  empresa: "Empresa",
-  cargo: "Diretor",
-  email: "lucas@empresa.com.br",
+  empresa: "Indústria ABC Ltda",
+  email: "contato@empresa.com.br",
   telefone: "(11) 99999-9999",
-  estado: "SP",
-  concessionaria: "Distribuidora",
-  perfil: "Indústria",
-  desafio: "Aumento de carga",
-  potencia: "500 kVA",
-  prazo: "Até 7 dias",
-  mensagem: "Contexto técnico com informações suficientes para triagem.",
+  perfil: "Engenharia e Projetos Elétricos",
+  mensagem: "Preciso de parecer e projeto elétrico para subestação de média tensão.",
   lgpd: true,
   website: "",
 };
@@ -34,9 +28,8 @@ describe("form utilities", () => {
     expect(errors.lgpd).toBeTruthy();
   });
 
-  it("valida UF e limite da mensagem", () => {
-    const errors = validateLead({ ...valid, estado: "Minas", mensagem: "x".repeat(1601) });
-    expect(errors.estado).toBe("Informe a UF com duas letras.");
+  it("valida limite da mensagem", () => {
+    const errors = validateLead({ ...valid, mensagem: "x".repeat(1601) });
     expect(errors.mensagem).toBe("Resuma o contexto em até 1600 caracteres.");
   });
 

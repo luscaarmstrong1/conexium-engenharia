@@ -1,617 +1,414 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import SectionHeading from "@components/SectionHeading.astro";
-import CtaBand from "@components/CtaBand.astro";
-import { cases, faqs, profileSolutions } from "@data/site";
+import { servicePages, methodologySteps, whenCanHelpItems, site } from "@data/site";
 import { withBase } from "@lib/urls";
 
-const credibility = [
-  { value: "BT/MT", label: "Projetos, proteção e infraestrutura elétrica" },
-  { value: "GD", label: "Conexão, parecer de acesso e inversão de fluxo" },
-  { value: "ANEEL", label: "Leitura técnico-regulatória e evidências" },
-  { value: "Perícia", label: "Quesitos, laudos e pareceres técnicos" },
-];
-
-const intelligenceChips = ["Python", "VBA", "Planilhas inteligentes", "Dashboards técnicos"];
-
-const practiceAreas = [
-  {
-    title: "Conexão, geração distribuída e parecer de acesso",
-    description:
-      "Apoio técnico em conexão, orçamentos, pareceres, inversão de fluxo, alternativas, aumento de carga e tratativas com distribuidoras.",
-    tags: ["GD", "Parecer de acesso", "Inversão de fluxo"],
-    href: "/servicos/consultoria-regulatoria/",
-  },
-  {
-    title: "Engenharia e projetos elétricos",
-    description:
-      "Projetos e revisões para BT/MT, fotovoltaico, subestações, entrada de energia, proteção, seletividade, quadros e geradores.",
-    tags: ["BT/MT", "Subestações", "Proteção"],
-    href: "/servicos/engenharia-projetos-eletricos/",
-  },
-  {
-    title: "Consultoria técnico-regulatória",
-    description:
-      "Análise técnica e normativa de documentos de distribuidoras, prazos, exigências, contestações e evidências.",
-    tags: ["Regulação", "Distribuidoras", "ANEEL"],
-    href: "/servicos/consultoria-regulatoria/",
-  },
-  {
-    title: "Perícias, quesitos e pareceres técnicos",
-    description:
-      "Quesitos, análise de laudos, pareceres técnicos, matriz de evidências e assistência técnica em engenharia elétrica.",
-    tags: ["Quesitos", "Laudos", "Evidências"],
-    href: "/servicos/pericias-quesitos-pareceres/",
-  },
-  {
-    title: "Inteligência energética e análise de faturas",
-    description: "Consumo, demanda, faturas, enquadramento tarifário, indicadores, dashboards e decisão energética.",
-    tags: ["Faturas", "Demanda", "Indicadores"],
-    href: "/servicos/inteligencia-energetica/",
-  },
-  {
-    title: "Eletromobilidade e novas cargas",
-    description: "Viabilidade e projeto para eletropostos, hubs, frotas, condomínios, postos e novas cargas conectadas à rede.",
-    tags: ["Recarga", "Eletropostos", "Novas cargas"],
-    href: "/servicos/eletromobilidade/",
-  },
-  {
-    title: "Backup, continuidade e operações críticas",
-    description: "Análise e projetos com geradores, QTA, cargas prioritárias, continuidade, proteção e confiabilidade elétrica.",
-    tags: ["Geradores", "QTA", "Operação crítica"],
-    href: "/servicos/engenharia-projetos-eletricos/",
-  },
-  {
-    title: "Automação técnica e gestão documental",
-    description: "Planilhas inteligentes, Python, VBA, dashboards, documentos, formulários, protocolos e evidências.",
-    tags: ["Python", "VBA", "Dashboards"],
-    href: "/servicos/inteligencia-energetica/",
-  },
-];
-
-const methodSteps = [
-  { title: "Diagnóstico técnico", text: "Leitura do problema, documentos, restrições e objetivo." },
-  { title: "Organização de evidências", text: "Estruturação de dados, faturas, projetos, medições e normas." },
-  { title: "Estratégia técnica", text: "Cenários, riscos, alternativas, quesitos e premissas." },
-  { title: "Entrega rastreável", text: "Relatório, parecer, memorial, matriz ou documentação técnica." },
-];
-
-const forensicCards = [
-  {
-    title: "Elaboração de quesitos técnicos",
-    text: "Perguntas objetivas para temas de energia, GD, danos, consumo, demanda e instalações.",
-  },
-  {
-    title: "Análise de laudos e pareceres",
-    text: "Leitura técnica de laudos, medições, faturas, projetos, fotos e diagramas.",
-  },
-  {
-    title: "Assistência técnica e evidências",
-    text: "Matriz de evidências, linha do tempo, normas, cálculos e subsídios técnicos.",
-  },
-];
-
-const integratorChecks = [
-  "Revisão de documentação antes de protocolo",
-  "Análise de exigências e restrições da distribuidora",
-  "Alternativas técnicas para conexão, carga e geração",
-  "Padronização de evidências para reduzir retrabalho",
-];
-
-const showcaseFilters = ["Todos", "Conexão", "Regulação", "Perícias", "Projetos", "Dados", "Eletromobilidade", "Integradores"];
-
-const showcaseSuggestions = [
-  "Parecer de acesso",
-  "Inversão de fluxo",
-  "Quesitos técnicos",
-  "Análise de faturas",
-  "Projeto BT/MT",
-  "Hub de recarga",
-  "Aumento de carga",
-];
-
-const showcaseSolutions = [
-  {
-    title: "Parecer de Acesso Auditável",
-    description:
-      "Transforme respostas de distribuidoras em uma análise técnica clara, rastreável e fundamentada.",
-    tags: ["Conexão", "Blueprint", "Integradores"],
-    category: "Conexão",
-    href: "/servicos/consultoria-regulatoria/",
-    cta: "Explorar análise",
-    variant: "access",
-    featured: true,
-  },
-  {
-    title: "Projetos BT/MT e Infraestrutura",
-    description:
-      "Projetos elétricos estruturados para segurança, aprovação, operação e expansão futura.",
-    tags: ["Projetos", "Corporate", "BT/MT"],
-    category: "Projetos",
-    href: "/servicos/engenharia-projetos-eletricos/",
-    cta: "Ver projetos",
-    variant: "project",
-  },
-  {
-    title: "Perícias, Quesitos e Evidências",
-    description:
-      "Organize laudos, fotos, faturas e medições em perguntas técnicas objetivas e verificáveis.",
-    tags: ["Perícias", "Documental", "Quesitos"],
-    category: "Perícias",
-    href: "/servicos/pericias-quesitos-pareceres/",
-    cta: "Ver escopo",
-    variant: "forensics",
-  },
-  {
-    title: "Inteligência Energética",
-    description:
-      "Faturas, demanda, consumo e indicadores convertidos em leitura técnica para decisão.",
-    tags: ["Dados", "Dashboard", "Faturas"],
-    category: "Dados",
-    href: "/servicos/inteligencia-energetica/",
-    cta: "Analisar dados",
-    variant: "data",
-  },
-  {
-    title: "Eletromobilidade e Novas Cargas",
-    description:
-      "Antes dos carregadores, dimensione demanda, proteção, entrada de energia e capacidade da rede.",
-    tags: ["Recarga", "Infraestrutura", "Novas cargas"],
-    category: "Eletromobilidade",
-    href: "/servicos/eletromobilidade/",
-    cta: "Avaliar viabilidade",
-    variant: "mobility",
-  },
-  {
-    title: "Retaguarda para Integradores",
-    description:
-      "Suporte técnico para reduzir retrabalho, responder exigências e fortalecer entregas de integradores.",
-    tags: ["Integradores", "Bento", "White label"],
-    category: "Integradores",
-    href: "/para-integradores/",
-    cta: "Solicitar apoio",
-    variant: "integrators",
-  },
-];
-
-const breadcrumbJsonLd = {
+const homeJsonLd = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Início", item: "https://conexiumengenharia.com.br/" },
-  ],
+  "@type": "WebPage",
+  name: "Conexium Engenharia | Engenharia Elétrica, Regulação e Perícias Técnicas",
+  description: site.description,
+  url: site.url,
 };
 ---
 
 <BaseLayout
-  title="Conexium Engenharia | Engenharia, conexão e inteligência técnica"
-  description="Engenharia elétrica, conexão à rede, geração distribuída, regulação, perícias técnicas, quesitos, inteligência energética e eletromobilidade para empresas e integradores."
+  title="Conexium Engenharia | Engenharia Elétrica, Regulação e Perícias Técnicas"
+  description={site.description}
   path="/"
-  jsonLd={breadcrumbJsonLd}
+  jsonLd={homeJsonLd}
 >
-  <section class="home-hero-showcase relative isolate min-h-screen overflow-hidden border-b border-white/10 px-4 pb-16 pt-28 text-cx-text sm:pt-32 lg:pt-36">
-    <div class="noise"></div>
-    <div class="relative z-10 mx-auto max-w-5xl text-center">
-      <div class="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-xl">
-        <span class="h-2 w-2 rounded-full bg-cx-cyan shadow-[0_0_18px_rgba(88,224,212,.75)]" aria-hidden="true"></span>
-        <span class="text-[0.68rem] font-semibold uppercase leading-5 tracking-[0.18em] text-white/65">
-          Conexão à rede · Regulação · Perícias · Inteligência energética
-        </span>
-      </div>
+  <!-- =========================================================================
+       HERO SECTION (Visualmente 1:1 com o Mockup)
+       Desktop: 47% texto / 53% imagem, transição escura suave, engenheiro de costas
+       ========================================================================= -->
+  <section class="relative isolate overflow-hidden bg-[#001816] text-white">
+    <div class="cx-shell relative">
+      <div class="grid items-center lg:grid-cols-[47%_53%] min-h-[580px] lg:min-h-[640px]">
+        <!-- Lado Esquerdo: Conteúdo Editorial e CTAs -->
+        <div class="z-10 py-12 lg:py-16 pr-0 lg:pr-8">
+          <p class="text-xs font-bold tracking-[0.22em] text-[#E6B64C] uppercase">
+            ENGENHARIA. REGULACAO. EVIDÊNCIA.
+          </p>
 
-      <h1 class="h-display mx-auto mt-7 max-w-5xl text-balance">
-        Engenharia elétrica, conexão e inteligência técnica em uma única interface de decisão.
-      </h1>
-      <p class="text-lead mx-auto mt-7 max-w-3xl">
-        A Conexium Engenharia organiza projetos, pareceres, faturas, laudos, medições e normas em diagnósticos técnicos claros para empresas, integradores e operações que precisam decidir com segurança.
-      </p>
+          <h1 class="font-serif-display mt-5 text-[clamp(2.1rem,3.4vw,3.3rem)] leading-[1.12] text-[#FFFFFF]">
+            Engenharia elétrica,<br />
+            consultoria técnico-regulatória<br />
+            e evidência técnica para<br />
+            <span class="text-[#E6B64C]">decisões seguras.</span>
+          </h1>
 
-      <div class="showcase-search-shell mx-auto mt-10 flex max-w-3xl items-center gap-3 rounded-full border border-white/10 bg-white/[.055] p-2 shadow-[0_24px_80px_rgba(0,0,0,.28)] backdrop-blur-2xl transition">
-        <label for="showcase-search" class="sr-only">Buscar desafio técnico</label>
-        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/[.06] text-cx-cyan" aria-hidden="true">
-          <span class="relative h-5 w-5 rounded-full border-2 border-current after:absolute after:-bottom-1 after:-right-1 after:h-2 after:w-2 after:rotate-45 after:rounded-full after:bg-current"></span>
-        </div>
-        <input
-          id="showcase-search"
-          data-showcase-search
-          class="min-w-0 flex-1 bg-transparent text-sm text-white placeholder:text-white/40 outline-none"
-          type="search"
-          autocomplete="off"
-          placeholder="Qual desafio técnico você precisa resolver?"
-        />
-        <a
-          href={withBase("/contato/")}
-          class="hidden rounded-full bg-cx-text px-5 py-3 text-xs font-semibold uppercase tracking-[.12em] text-cx-void transition hover:bg-cx-cyan sm:inline-flex"
-          data-track="hero-diagnostico"
-        >
-          Diagnóstico
-        </a>
-      </div>
+          <p class="mt-6 max-w-xl text-[0.95rem] leading-[1.65] text-[#D8D8D5]/90">
+            Soluções técnicas e estratégicas em engenharia, regulação e análise técnica com base em evidências, para apoiar projetos, operações e decisões no setor elétrico.
+          </p>
 
-      <div class="mx-auto mt-4 flex max-w-4xl flex-wrap justify-center gap-2 text-left">
-        {showcaseSuggestions.map((suggestion) => (
-          <button
-            type="button"
-            class="rounded-full border border-white/10 bg-white/[.035] px-3 py-1.5 text-xs font-semibold text-white/52 transition hover:border-cx-cyan/40 hover:text-white"
-            data-showcase-suggestion={suggestion}
-          >
-            {suggestion}
-          </button>
-        ))}
-      </div>
-
-      <div class="mx-auto mt-5 flex max-w-5xl gap-2 overflow-x-auto px-1 pb-2 sm:justify-center" aria-label="Filtrar soluções técnicas">
-        {showcaseFilters.map((filter, index) => (
-          <button
-            type="button"
-            class:list={[
-              "showcase-filter shrink-0 rounded-full border px-4 py-2 text-[0.68rem] font-semibold uppercase tracking-[.13em] transition",
-              index === 0
-                ? "is-active border-cx-gold/60 bg-cx-gold/10 text-cx-gold-soft"
-                : "border-white/10 bg-white/[.035] text-white/50 hover:border-cx-cyan/40 hover:text-white",
-            ]}
-            data-showcase-filter={filter}
-            aria-pressed={index === 0 ? "true" : "false"}
-          >
-            {filter}
-          </button>
-        ))}
-      </div>
-
-      <div class="mt-7 flex flex-col justify-center gap-3 sm:hidden">
-        <a href={withBase("/contato/")} class="inline-flex items-center justify-center rounded-full bg-cx-text px-6 py-3 text-sm font-semibold text-cx-void transition hover:bg-cx-cyan">
-          Solicitar diagnóstico técnico <span class="ml-2" aria-hidden="true">-&gt;</span>
-        </a>
-        <a href="#areas" class="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white/75 transition hover:border-cx-cyan/50 hover:text-white">
-          Ver áreas de atuação
-        </a>
-      </div>
-    </div>
-
-    <div class="relative z-10 mx-auto mt-14 w-[min(100%,1320px)]">
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-6 xl:grid-cols-12">
-        {showcaseSolutions.map((solution, index) => (
-          <article
-            class:list={[
-              "cx-showcase-card reveal group flex min-h-[390px] flex-col p-4",
-              solution.featured ? "md:col-span-6 xl:col-span-5 xl:min-h-[455px]" : "md:col-span-3 xl:min-h-[405px]",
-              index === 1 ? "xl:col-span-4" : "",
-              index === 2 ? "xl:col-span-3" : "",
-              index > 2 ? "xl:col-span-4" : "",
-            ]}
-            style={`--reveal-delay:${index * 60}ms`}
-            data-showcase-card
-            data-category={solution.category}
-            data-search={`${solution.title} ${solution.description} ${solution.tags.join(" ")}`}
-          >
-            <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(88,224,212,.14),transparent_22rem)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-            <a href={withBase(solution.href)} class="relative flex h-full flex-col" aria-label={`${solution.cta}: ${solution.title}`}>
-              <div class:list={["mockup-frame", `mockup-${solution.variant}`]}>
-                <div class="flex h-8 items-center gap-2 border-b border-white/10 bg-white/[.04] px-3">
-                  <span class="h-2 w-2 rounded-full bg-cx-gold-soft"></span>
-                  <span class="h-2 w-2 rounded-full bg-cx-cyan/70"></span>
-                  <span class="h-2 w-2 rounded-full bg-white/25"></span>
-                  <span class="ml-3 h-3 w-28 rounded-full bg-white/10"></span>
-                </div>
-
-                <div class="mockup-canvas">
-                  {solution.variant === "access" && (
-                    <>
-                      <div class="mockup-network">
-                        <span></span><span></span><span></span><span></span>
-                      </div>
-                      <div class="mockup-panel left">
-                        <strong>Premissas</strong>
-                        <i></i><i></i><i></i>
-                      </div>
-                      <div class="mockup-panel right">
-                        <strong>Matriz</strong>
-                        <i></i><i></i>
-                      </div>
-                      <div class="mockup-chart"><span></span><span></span><span></span><span></span><span></span></div>
-                    </>
-                  )}
-
-                  {solution.variant === "project" && (
-                    <>
-                      <div class="mockup-blueprint-lines"></div>
-                      <div class="mockup-diagram">
-                        <span></span><span></span><span></span><span></span><span></span>
-                      </div>
-                      <div class="mockup-stamp">BT/MT</div>
-                    </>
-                  )}
-
-                  {solution.variant === "forensics" && (
-                    <>
-                      <div class="mockup-document">
-                        <strong>Quesitos técnicos</strong>
-                        <i></i><i></i><i></i><i></i>
-                      </div>
-                      <div class="mockup-evidence"><span></span><span></span><span></span></div>
-                    </>
-                  )}
-
-                  {solution.variant === "data" && (
-                    <>
-                      <div class="mockup-kpis"><span>kWh</span><span>kW</span><span>R$</span></div>
-                      <div class="mockup-bars"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-                      <div class="mockup-line"></div>
-                    </>
-                  )}
-
-                  {solution.variant === "mobility" && (
-                    <>
-                      <div class="mockup-charge-map">
-                        <span></span><span></span><span></span><span></span>
-                      </div>
-                      <div class="mockup-load-card">Nova carga</div>
-                      <div class="mockup-flow"></div>
-                    </>
-                  )}
-
-                  {solution.variant === "integrators" && (
-                    <div class="mockup-bento">
-                      <span>Revisão</span>
-                      <span>Parecer</span>
-                      <span>Contestação</span>
-                      <span>Checklist</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div class="mt-5 flex items-start gap-3">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[.055]">
-                  <img src={withBase("/brand/conexium-symbol.svg")} alt="" class="h-5 w-5" width="20" height="20" />
-                </div>
-                <div>
-                  <p class="text-xs font-semibold uppercase tracking-[.14em] text-cx-gold-soft/70">{solution.category}</p>
-                  <h2 class="mt-2 text-[clamp(1.05rem,1.35vw,1.35rem)] font-medium leading-tight text-cx-text">
-                    {solution.title}
-                  </h2>
-                </div>
-              </div>
-
-              <p class="mt-4 line-clamp-2 text-sm leading-7 text-white/58">{solution.description}</p>
-              <div class="mt-5 flex flex-wrap gap-2">
-                {solution.tags.map((tag) => (
-                  <span class="showcase-tag rounded-full border border-white/10 bg-white/[.035] px-3 py-1 text-[10px] font-semibold uppercase tracking-[.14em] text-white/45 transition">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <span class="mt-auto inline-flex pt-5 text-sm font-medium text-cx-cyan opacity-80 transition group-hover:opacity-100">
-                {solution.cta} <span class="ml-2 transition group-hover:translate-x-1" aria-hidden="true">-&gt;</span>
-              </span>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href={withBase("/contato/")} class="btn-gold" data-track="hero-cta-primary">
+              Solicitar diagnóstico <span class="ml-1.5" aria-hidden="true">→</span>
             </a>
-          </article>
-        ))}
-      </div>
-      <p class="showcase-empty mt-8 hidden rounded-full border border-white/10 bg-white/[.04] px-5 py-4 text-center text-sm text-cx-muted">
-        Nenhuma solução apareceu para esse filtro. Tente outro termo técnico.
-      </p>
-    </div>
-  </section>
-
-  <script is:inline>
-    const searchInput = document.querySelector("[data-showcase-search]");
-    const cards = Array.from(document.querySelectorAll("[data-showcase-card]"));
-    const filters = Array.from(document.querySelectorAll("[data-showcase-filter]"));
-    const suggestions = Array.from(document.querySelectorAll("[data-showcase-suggestion]"));
-    const emptyState = document.querySelector(".showcase-empty");
-    let activeFilter = "Todos";
-
-    function normalize(value) {
-      return value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
-
-    function applyShowcaseFilters() {
-      const query = normalize(searchInput?.value || "");
-      let visibleCount = 0;
-
-      cards.forEach((card) => {
-        const category = card.getAttribute("data-category") || "";
-        const searchable = normalize(card.getAttribute("data-search") || "");
-        const matchesFilter = activeFilter === "Todos" || category === activeFilter || searchable.includes(normalize(activeFilter));
-        const matchesSearch = !query || searchable.includes(query);
-        const isVisible = matchesFilter && matchesSearch;
-
-        card.classList.toggle("hidden", !isVisible);
-        visibleCount += isVisible ? 1 : 0;
-      });
-
-      emptyState?.classList.toggle("hidden", visibleCount > 0);
-    }
-
-    filters.forEach((filter) => {
-      filter.addEventListener("click", () => {
-        activeFilter = filter.getAttribute("data-showcase-filter") || "Todos";
-        filters.forEach((item) => {
-          const isActive = item === filter;
-          item.classList.toggle("is-active", isActive);
-          item.setAttribute("aria-pressed", String(isActive));
-        });
-        applyShowcaseFilters();
-      });
-    });
-
-    suggestions.forEach((suggestion) => {
-      suggestion.addEventListener("click", () => {
-        if (!searchInput) return;
-        searchInput.value = suggestion.getAttribute("data-showcase-suggestion") || "";
-        searchInput.focus();
-        applyShowcaseFilters();
-      });
-    });
-
-    searchInput?.addEventListener("input", applyShowcaseFilters);
-  </script>
-
-  <section class="border-b border-white/10 bg-cx-void px-5 py-8 text-cx-text sm:px-6 lg:px-8">
-    <div class="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      {credibility.map((item) => (
-        <div class="reveal rounded-md border border-white/10 bg-white/5 px-5 py-5">
-          <p class="text-2xl font-semibold text-cx-gold">{item.value}</p>
-          <p class="mt-2 text-sm leading-6 text-cx-muted">{item.label}</p>
+            <a href={withBase("/contato/")} class="btn-secondary-dark" data-track="hero-cta-secondary">
+              Falar com um especialista
+            </a>
+          </div>
         </div>
-      ))}
+
+        <!-- Lado Direito: Fotografia do Engenheiro com transição suave -->
+        <div class="relative h-[380px] sm:h-[480px] lg:h-full lg:min-h-[640px] w-full overflow-hidden">
+          <img
+            src={withBase("/assets/conexium/hero-subestacao-engenheiro.png")}
+            alt="Engenheiro eletricista analisando diagrama em notebook diante de subestação ao pôr do sol"
+            class="h-full w-full object-cover object-center lg:object-[65%_center]"
+            loading="eager"
+            fetchpriority="high"
+            width="1280"
+            height="720"
+          />
+          <!-- Gradiente de transição escura suave para fundir perfeitamente com a coluna de texto -->
+          <div class="absolute inset-y-0 left-0 hidden w-32 bg-gradient-to-r from-[#001816] to-transparent lg:block" aria-hidden="true"></div>
+          <!-- Gradiente inferior sutil para mobile -->
+          <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#001816] to-transparent lg:hidden" aria-hidden="true"></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="areas" class="cx-section bg-cx-void px-5 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <SectionHeading
-        dark
-        eyebrow="Áreas de atuação"
-        title="Especialidades conectadas para reduzir risco técnico antes da decisão."
-        description="Atuação em energia, conexão, infraestrutura elétrica, regulação, perícias e dados energéticos, com foco em clareza, rastreabilidade e viabilidade."
-      />
-      <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {practiceAreas.map((area) => (
-          <article class="cx-card reveal flex h-full flex-col p-5">
-            <h3 class="text-lg font-semibold text-cx-text">{area.title}</h3>
-            <p class="mt-3 text-sm leading-6 text-cx-muted">{area.description}</p>
-            <div class="mt-5 flex flex-wrap gap-2">
-              {area.tags.map((tag) => <span class="rounded-full border border-white/10 bg-white/6 px-2.5 py-1 text-[11px] font-bold text-cx-muted">{tag}</span>)}
-            </div>
-            <a href={withBase(area.href)} class="mt-auto pt-6 text-sm font-semibold text-cx-cyan">Ver detalhes <span aria-hidden="true">-&gt;</span></a>
-          </article>
-        ))}
-      </div>
-      <div class="reveal mt-8 rounded-[1rem] border border-white/10 bg-white/5 p-6">
-        <div class="grid gap-5 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+  <!-- =========================================================================
+       TRUST BAR ABAIXO DO HERO
+       Faixa horizontal verde petróleo profundo com 4 pilares e divisores discretos
+       ========================================================================= -->
+  <section class="border-y border-white/10 bg-[#001D1B] py-6 text-white" aria-label="Garantias técnicas">
+    <div class="cx-shell">
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-white/10">
+        <!-- Benefício 1: Metodologia rastreável -->
+        <div class="flex items-center gap-4 px-2">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#E6B64C]/30 bg-[#E6B64C]/10 text-[#E6B64C]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
           <div>
-            <h3 class="text-xl font-semibold text-cx-text">Dados, automação e inteligência energética</h3>
-            <p class="mt-3 text-sm leading-7 text-cx-muted">
-              Automação aplicada a faturas, indicadores, documentação e rotinas técnicas, sempre com revisão de engenharia.
+            <h2 class="text-sm font-semibold text-white">Metodologia rastreável</h2>
+            <p class="mt-0.5 text-xs text-[#8D9592]">Análises técnicas com base normativa</p>
+          </div>
+        </div>
+
+        <!-- Benefício 2: Responsabilidade técnica -->
+        <div class="flex items-center gap-4 px-2 lg:pl-6">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#E6B64C]/30 bg-[#E6B64C]/10 text-[#E6B64C]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          </div>
+          <div>
+            <h2 class="text-sm font-semibold text-white">Responsabilidade técnica</h2>
+            <p class="mt-0.5 text-xs text-[#8D9592]">ART em todos os trabalhos</p>
+          </div>
+        </div>
+
+        <!-- Benefício 3: Atuação técnica especializada -->
+        <div class="flex items-center gap-4 px-2 lg:pl-6">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#E6B64C]/30 bg-[#E6B64C]/10 text-[#E6B64C]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <div>
+            <h2 class="text-sm font-semibold text-white">Atuação técnica especializada</h2>
+            <p class="mt-0.5 text-xs text-[#8D9592]">Setor elétrico e regulação</p>
+          </div>
+        </div>
+
+        <!-- Benefício 4: Conformidade normativa -->
+        <div class="flex items-center gap-4 px-2 lg:pl-6">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#E6B64C]/30 bg-[#E6B64C]/10 text-[#E6B64C]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <div>
+            <h2 class="text-sm font-semibold text-white">Conformidade normativa</h2>
+            <p class="mt-0.5 text-xs text-[#8D9592]">ANEEL, ABNT, ONS, IEC e outras</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECAO SOBRE A CONEXIUM
+       Fundo off-white, texto editorial à esquerda, foto de análise com badge escuro à direita
+       ========================================================================= -->
+  <section class="bg-[#FAF8F3] py-20 lg:py-24 text-[#303735]" aria-labelledby="sobre-title">
+    <div class="cx-shell">
+      <div class="grid items-center gap-12 lg:grid-cols-[45%_55%]">
+        <!-- Coluna Esquerda: Texto institucional -->
+        <div>
+          <p class="text-xs font-bold tracking-[0.2em] text-[#D7A536] uppercase">
+            SOBRE A CONEXIUM
+          </p>
+
+          <h2 id="sobre-title" class="font-serif-display mt-4 text-[clamp(2rem,3vw,2.75rem)] leading-[1.18] text-[#001816]">
+            Engenharia, regulação<br />
+            e evidência a serviço<br />
+            de decisões técnicas.
+          </h2>
+
+          <div class="mt-6 space-y-4 text-[0.95rem] leading-[1.75] text-[#303735]/85">
+            <p>
+              A Conexium Engenharia atua com soluções técnicas para o setor elétrico, unindo conhecimento de engenharia, análise regulatória e produção de evidências técnicas.
+            </p>
+            <p>
+              Nosso trabalho apoia projetos, decisões, contestações, processos regulatórios e demandas que exigem fundamentação, rastreabilidade e responsabilidade técnica.
             </p>
           </div>
-          <div class="flex flex-wrap gap-2 lg:justify-end">
-            {intelligenceChips.map((chip) => <span class="rounded-full border border-cx-cyan/25 bg-cx-cyan/10 px-3 py-2 text-xs font-bold text-cx-cyan">{chip}</span>)}
+
+          <div class="mt-8">
+            <a href={withBase("/a-conexium/")} class="btn-gold" data-track="sobre-cta">
+              Conheça a Conexium <span class="ml-1.5" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Foto com composição de badge técnico sobreposto -->
+        <div class="relative overflow-hidden rounded-xl shadow-[0_16px_40px_rgba(0,24,22,0.12)]">
+          <div class="relative h-[360px] sm:h-[420px] w-full">
+            <img
+              src={withBase("/assets/conexium/analise-projeto-mesa.png")}
+              alt="Engenheiro examinando desenho elétrico sobre mesa com capacete de segurança"
+              class="h-full w-full object-cover object-center"
+              loading="lazy"
+              width="900"
+              height="600"
+            />
+            <!-- Composição lateral escura conforme Mockup com HTML real -->
+            <div class="absolute inset-y-0 right-0 flex w-[42%] flex-col justify-center bg-[#001D1B]/95 p-6 sm:p-8 text-white backdrop-blur-sm">
+              <div class="mb-4">
+                <img src={withBase("/brand/conexium-symbol.svg")} alt="" class="h-8 w-8" width="32" height="32" />
+              </div>
+              <div class="border-l-2 border-[#E6B64C] pl-4">
+                <p class="text-xs sm:text-sm font-bold tracking-[0.14em] text-white leading-relaxed uppercase">
+                  BASE TÉCNICA<br />
+                  PARA PROJETOS,<br />
+                  DISPUTAS E<br />
+                  DECISÕES<br />
+                  ESTRATÉGICAS.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-[#f6f8f7] px-5 py-20 text-slate-950 sm:px-6 lg:px-8">
-    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.88fr_1.12fr] lg:items-center">
-      <div class="reveal">
-        <p class="eyebrow text-cx-teal">Para integradores e empresas</p>
-        <h2 class="h-section mt-4 max-w-3xl text-balance">Um apoio técnico discreto para destravar conexão, documentação e viabilidade.</h2>
-        <p class="mt-5 text-base leading-8 text-slate-600">
-          A Conexium atua como camada técnica para revisar premissas, organizar evidências e sustentar decisões em projetos de energia que dependem de distribuidoras, normas e documentação rastreável.
+  <!-- =========================================================================
+       SECAO PRINCIPAL DE SERVIÇOS (EXATAMENTE TRÊS CARDS)
+       Fundo verde petróleo profundo (#001816), cards técnicos com imagens reais
+       ========================================================================= -->
+  <section class="bg-[#001816] py-20 lg:py-24 text-white" aria-labelledby="servicos-title">
+    <div class="cx-shell">
+      <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div>
+          <p class="text-xs font-bold tracking-[0.2em] text-[#E6B64C] uppercase">
+            NOSSOS SERVIÇOS
+          </p>
+          <h2 id="servicos-title" class="font-serif-display mt-3 text-[clamp(1.9rem,2.8vw,2.5rem)] text-white">
+            Soluções técnicas para o setor elétrico
+          </h2>
+        </div>
+        <p class="max-w-md text-sm text-[#8D9592]">
+          Projetos, análises e pareceres com rigor técnico, visão regulatória e foco em resultados.
         </p>
-        <a href={withBase("/para-integradores/")} class="mt-7 inline-flex rounded-full bg-cx-void px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cx-deep">
-          Ver apoio para integradores <span class="ml-2" aria-hidden="true">-&gt;</span>
-        </a>
       </div>
-      <div class="grid gap-3">
-        {integratorChecks.map((item) => (
-          <div class="reveal flex gap-4 rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
-            <span class="mt-1 h-2.5 w-2.5 rounded-full bg-cx-teal shadow-[0_0_18px_rgba(14,124,115,.45)]" aria-hidden="true"></span>
-            <p class="text-sm leading-7 text-slate-700">{item}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
-  <section class="bg-cx-void px-5 py-20 text-cx-text sm:px-6 lg:px-8">
-    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.72fr_1.28fr]">
-      <SectionHeading dark eyebrow="Método" title="Diagnóstico, evidência, estratégia e entrega rastreável." />
-      <div class="grid gap-4 sm:grid-cols-2">
-        {methodSteps.map((step, index) => (
-          <article class="cx-card reveal p-6">
-            <p class="eyebrow text-cx-gold">Etapa {String(index + 1).padStart(2, "0")}</p>
-            <h3 class="mt-4 text-xl font-semibold text-white">{step.title}</h3>
-            <p class="mt-3 text-sm leading-7 text-cx-muted">{step.text}</p>
+      <!-- Grid com exatamente 3 Cards -->
+      <div class="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {servicePages.map((service, index) => (
+          <article class="cx-service-card flex flex-col">
+            <!-- Imagem de topo do card -->
+            <div class="relative h-48 w-full overflow-hidden bg-[#001D1B]">
+              <img
+                src={withBase(service.image)}
+                alt={service.title}
+                class="h-full w-full object-cover transition duration-300 hover:scale-[1.02]"
+                loading="lazy"
+                width="480"
+                height="240"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#002320] via-transparent to-transparent opacity-80" aria-hidden="true"></div>
+            </div>
+
+            <!-- Conteúdo do card -->
+            <div class="flex flex-1 flex-col p-6 sm:p-7">
+              <!-- Ícone técnico em linha dourada -->
+              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-[#E6B64C]/30 bg-[#E6B64C]/10 text-[#E6B64C]" aria-hidden="true">
+                {index === 0 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                )}
+                {index === 1 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                )}
+                {index === 2 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                )}
+              </div>
+
+              <h3 class="text-xl font-bold text-white leading-snug">
+                {service.title}
+              </h3>
+
+              <p class="mt-3 text-sm leading-relaxed text-[#D8D8D5]/80">
+                {service.cardDescription}
+              </p>
+
+              <!-- Bullets com check dourado -->
+              <ul class="mt-5 space-y-2.5 text-xs text-[#ECEDE9]/90">
+                {service.cardBullets.map((bullet) => (
+                  <li class="flex items-center gap-2.5">
+                    <svg class="h-4 w-4 shrink-0 text-[#E6B64C]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <!-- CTA Saiba mais -->
+              <div class="mt-auto pt-6">
+                <a
+                  href={withBase(`/servicos/${service.slug}/`)}
+                  class="inline-flex items-center text-sm font-semibold text-[#E6B64C] transition hover:text-[#F0C767]"
+                >
+                  Saiba mais <span class="ml-1.5" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
           </article>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="bg-[#f6f8f7] px-5 py-20 text-slate-950 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <div class="grid gap-10 lg:grid-cols-[.82fr_1.18fr] lg:items-start">
+  <!-- =========================================================================
+       SECAO "QUANDO PODEMOS AJUDAR"
+       Fundo claro, 4 colunas com ícones técnicos minimalistas
+       ========================================================================= -->
+  <section class="bg-[#FAF8F3] py-20 text-[#303735]" aria-labelledby="quando-ajudar-title">
+    <div class="cx-shell">
+      <div class="grid items-center gap-8 lg:grid-cols-[30%_70%]">
         <div>
-          <SectionHeading
-            eyebrow="Perícias, quesitos e evidências técnicas"
-            title="Documentos técnicos convertidos em perguntas, evidências e pareceres."
-            description="Apoio para medições, faturas, projetos e eventos elétricos, dentro dos limites profissionais."
-          />
-          <p class="reveal mt-6 rounded-md border border-slate-200 bg-white p-4 text-sm leading-7 text-slate-600 shadow-crisp">
-            A atuação é técnica. Demandas jurídicas devem ser conduzidas por advogado habilitado.
+          <h2 id="quando-ajudar-title" class="font-serif-display text-[clamp(1.8rem,2.5vw,2.3rem)] text-[#001816]">
+            Quando podemos ajudar
+          </h2>
+          <p class="mt-3 text-sm leading-relaxed text-[#303735]/80">
+            Apoiamos nossos clientes em diferentes momentos, com soluções técnicas objetivas e fundamentadas.
           </p>
         </div>
-        <div class="grid gap-4">
-          {forensicCards.map((card) => (
-            <article class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
-              <h3 class="text-lg font-semibold text-slate-950">{card.title}</h3>
-              <p class="mt-3 text-sm leading-7 text-slate-600">{card.text}</p>
-            </article>
+
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {whenCanHelpItems.map((item, idx) => (
+            <div class="rounded-lg border border-[#D8D8D5]/60 bg-white p-5 shadow-sm">
+              <div class="mb-3 text-[#D7A536]" aria-hidden="true">
+                {idx === 0 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
+                )}
+                {idx === 1 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                )}
+                {idx === 2 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>
+                )}
+                {idx === 3 && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                )}
+              </div>
+              <h3 class="text-xs font-bold uppercase tracking-wider text-[#001816]">
+                {item.title}
+              </h3>
+              <p class="mt-2 text-xs leading-relaxed text-[#303735]/80">
+                {item.description}
+              </p>
+            </div>
           ))}
-          <a href={withBase("/servicos/pericias-quesitos-pareceres/")} class="inline-flex w-fit rounded-full bg-cx-void px-5 py-3 text-sm font-semibold text-white transition hover:bg-cx-deep">Conhecer apoio pericial técnico <span class="ml-2" aria-hidden="true">-&gt;</span></a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-cx-void px-5 py-20 text-cx-text sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <SectionHeading
-        dark
-        eyebrow="Cenários de referência"
-        title="Problemas técnicos anonimizados, apresentados como cenários de decisão."
-      />
-      <div class="mt-10 grid gap-5 lg:grid-cols-3">
-        {cases.slice(0, 3).map((study, index) => (
-          <article class:list={["cx-card reveal p-6", index === 0 ? "lg:col-span-2" : ""]}>
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full border border-cx-cyan/25 bg-cx-cyan/10 px-3 py-1 text-xs font-bold text-cx-cyan">{study.category}</span>
-              <span class="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs font-semibold text-cx-muted">{study.label}</span>
+  <!-- =========================================================================
+       METODOLOGIA
+       Fundo verde muito escuro (#001816), linha horizontal dourada, números nos círculos
+       ========================================================================= -->
+  <section class="border-y border-white/10 bg-[#001816] py-20 text-white" aria-labelledby="metodologia-title">
+    <div class="cx-shell">
+      <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div>
+          <h2 id="metodologia-title" class="font-serif-display text-[clamp(1.9rem,2.8vw,2.5rem)] text-white">
+            Nossa metodologia
+          </h2>
+          <p class="mt-2 text-sm text-[#8D9592]">
+            Da demanda à solução, com rastreabilidade, rigor técnico e foco em resultados.
+          </p>
+        </div>
+        <a href={withBase("/a-conexium/")} class="btn-gold self-start md:self-auto">
+          Conheça nossa metodologia →
+        </a>
+      </div>
+
+      <!-- Timeline Desktop horizontal / Mobile vertical -->
+      <div class="relative mt-16">
+        <!-- Linha horizontal conectando os passos (apenas desktop) -->
+        <div class="absolute left-0 top-4 hidden h-[2px] w-full bg-[#E6B64C]/40 md:block" aria-hidden="true"></div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+          {methodologySteps.map((step) => (
+            <div class="relative flex flex-col items-start">
+              <!-- Círculo com o número do passo -->
+              <div class="z-10 flex h-8 w-8 items-center justify-center rounded-full border-2 border-[#E6B64C] bg-[#001816] text-xs font-bold text-[#E6B64C] shadow-sm">
+                {step.step}
+              </div>
+              <h3 class="mt-4 text-base font-bold text-white">
+                {step.title}
+              </h3>
+              <p class="mt-2 text-xs leading-relaxed text-[#8D9592]">
+                {step.description}
+              </p>
             </div>
-            <h3 class="mt-5 text-xl font-semibold text-cx-text">{study.title}</h3>
-            <p class="mt-4 text-sm leading-7 text-cx-muted">{study.challenge}</p>
-            <p class="mt-4 text-sm font-semibold text-cx-text">{study.impact}</p>
-          </article>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-[#f6f8f7] px-5 py-20 text-slate-950 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <SectionHeading
-        eyebrow="Perfis atendidos"
-        title="Engenharia para quem precisa decidir com base técnica."
-      />
-      <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
-        {profileSolutions.map((solution) => (
-          <article class="reveal rounded-md border border-slate-200 bg-white p-5 shadow-crisp">
-            <h3 class="text-lg font-semibold text-slate-950">{solution.title}</h3>
-            <p class="mt-3 text-sm leading-6 text-slate-600">{solution.text}</p>
-            <a href={withBase(solution.href)} class="mt-5 inline-flex text-sm font-semibold text-cx-teal">Ver rota <span class="ml-2" aria-hidden="true">-&gt;</span></a>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- =========================================================================
+       CTA FINAL (Visualmente 1:1 com o Mockup)
+       Arte das linhas de transmissão ao pôr do sol, overlay escuro, textos em HTML
+       ========================================================================= -->
+  <section class="relative isolate overflow-hidden bg-[#001816] py-24 text-white">
+    <!-- Imagem de fundo realista sem texto embutido -->
+    <img
+      src={withBase("/assets/conexium/cta-linhas-transmissao.png")}
+      alt="Infraestrutura e linhas de transmissão de energia elétrica ao pôr do sol"
+      class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+      loading="lazy"
+      width="1920"
+      height="800"
+    />
+    <!-- Overlay verde escuro conforme Mockup -->
+    <div class="absolute inset-0 -z-10 bg-[#001816]/85" aria-hidden="true"></div>
 
-  <CtaBand title="Envie o problema técnico para uma leitura inicial." label="Solicitar diagnóstico técnico" />
+    <div class="cx-shell relative z-10">
+      <div class="flex flex-col justify-between gap-8 md:flex-row md:items-center">
+        <div>
+          <p class="text-xs font-bold tracking-[0.2em] text-[#E6B64C] uppercase">
+            DECISÕES MELHORES COM BASE TÉCNICA.
+          </p>
+          <h2 class="font-serif-display mt-3 text-[clamp(2.2rem,3.4vw,3.2rem)] text-white leading-tight">
+            Antes de decidir, valide a engenharia.
+          </h2>
+          <p class="mt-3 max-w-xl text-sm text-[#D8D8D5]/90">
+            Fale com um especialista da Conexium e tenha uma avaliação técnica da sua demanda.
+          </p>
+        </div>
 
-  <section class="bg-cx-void px-5 pb-24 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-4xl">
-      <SectionHeading dark eyebrow="FAQ" title="Perguntas frequentes antes do diagnóstico técnico." />
-      <div class="mt-10 grid gap-4">
-        {faqs.map((faq) => (
-          <details class="cx-card reveal p-5">
-            <summary class="cursor-pointer text-lg font-semibold text-cx-text">{faq.question}</summary>
-            <p class="mt-4 text-sm leading-7 text-cx-muted">{faq.answer}</p>
-          </details>
-        ))}
+        <div class="flex flex-wrap items-center gap-4">
+          <a href={withBase("/contato/")} class="btn-gold" data-track="cta-final-primary">
+            Solicitar diagnóstico <span class="ml-1.5" aria-hidden="true">→</span>
+          </a>
+          <a href={withBase("/contato/")} class="btn-secondary-dark" data-track="cta-final-secondary">
+            Falar com um especialista
+          </a>
+        </div>
       </div>
     </div>
   </section>

@@ -1,21 +1,20 @@
 export function whatsappMessageForPath(pathname: string): string {
-  if (pathname.includes("consultoria-regulatoria")) {
-    return "Olá, preciso analisar uma restrição de conexão ou parecer de acesso.";
+  if (pathname.includes("consultoria-tecnico-regulatoria") || pathname.includes("consultoria-regulatoria")) {
+    return "Olá, gostaria de falar com a Conexium Engenharia sobre uma demanda técnica de consultoria técnico-regulatória.";
   }
   if (pathname.includes("engenharia-projetos-eletricos")) {
-    return "Olá, preciso avaliar um projeto elétrico ou infraestrutura.";
+    return "Olá, gostaria de falar com a Conexium Engenharia sobre uma demanda técnica de engenharia e projetos elétricos.";
   }
-  if (pathname.includes("eletromobilidade")) {
-    return "Olá, preciso estudar a viabilidade de infraestrutura de recarga.";
+  if (pathname.includes("pericias-pareceres-tecnicos") || pathname.includes("pericias-quesitos-pareceres")) {
+    return "Olá, gostaria de falar com a Conexium Engenharia sobre uma demanda técnica de perícias, quesitos ou pareceres.";
   }
-  if (pathname.includes("para-integradores")) {
-    return "Olá, gostaria de estruturar uma parceria técnica com a Conexium Engenharia.";
-  }
-  return "Olá, gostaria de solicitar um diagnóstico técnico com a Conexium Engenharia.";
+  return "Olá, gostaria de falar com a Conexium Engenharia sobre uma demanda técnica.";
 }
 
 export function buildWhatsAppUrl(number: string | undefined, message: string): string {
-  const digits = (number || "").replace(/\D/g, "");
+  const defaultNumber = "551138429930";
+  const rawNumber = number || defaultNumber;
+  const digits = rawNumber.replace(/\D/g, "");
   if (!digits) return "/contato/";
   return `https://wa.me/${digits}?text=${encodeURIComponent(message)}`;
 }

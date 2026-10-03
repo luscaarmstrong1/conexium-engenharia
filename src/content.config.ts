@@ -9,11 +9,8 @@ const blog = defineCollection({
     description: z.string(),
     category: z.enum([
       "Regulação",
-      "Geração distribuída",
       "Engenharia elétrica",
-      "Eletromobilidade",
-      "Inteligência energética",
-      "Projetos e infraestrutura",
+      "Perícias",
     ]),
     status: z.enum(["draft", "review", "published"]),
     slug: z.string(),

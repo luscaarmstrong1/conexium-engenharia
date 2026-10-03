@@ -1,15 +1,9 @@
 export type LeadForm = {
   nome: string;
   empresa: string;
-  cargo: string;
   email: string;
   telefone: string;
-  estado: string;
-  concessionaria: string;
   perfil: string;
-  desafio: string;
-  potencia: string;
-  prazo: string;
   mensagem: string;
   lgpd: boolean;
   website?: string;
@@ -31,32 +25,20 @@ export function sanitizeText(value: string): string {
     .trim();
 }
 
-export function scoreLead(form: Pick<LeadForm, "perfil" | "desafio" | "potencia" | "prazo" | "empresa" | "mensagem">): "alta" | "media" | "baixa" {
+export function scoreLead(form: Pick<LeadForm, "perfil" | "empresa" | "mensagem">): "alta" | "media" | "baixa" {
   const highSignals = [
-    "Parecer de acesso ou inversão de fluxo",
-    "Quesitos técnicos para perícia",
-    "Análise de laudo técnico",
-    "Danos elétricos",
-    "Hospital ou instituição",
-    "Indústria",
-    "Perito ou assistente técnico",
-    "Até 7 dias",
-  ];
-  const mediumSignals = [
-    "Projeto fotovoltaico",
-    "Aumento de carga",
-    "Demanda contratada",
-    "Consumo ou medição",
-    "Hub de recarga",
-    "Análise de fatura",
-    "Até 30 dias",
+    "Perícia",
+    "Quesitos",
+    "Parecer",
+    "Regulatória",
+    "Projetos",
+    "Conexão",
+    "Subestação",
   ];
 
-  const joined = `${form.perfil} ${form.desafio} ${form.prazo} ${form.potencia}`.toLowerCase();
+  const joined = `${form.perfil} ${form.empresa} ${form.mensagem}`.toLowerCase();
   const hasHigh = highSignals.some((signal) => joined.includes(signal.toLowerCase()));
   if (hasHigh) return "alta";
-  const hasMedium = mediumSignals.some((signal) => joined.includes(signal.toLowerCase()));
-  if (hasMedium) return "media";
   if (!form.empresa.trim() || form.mensagem.trim().length < 20) return "baixa";
   return "media";
 }
@@ -66,12 +48,9 @@ export function validateLead(form: LeadForm): Record<string, string> {
   if (!sanitizeText(form.nome)) errors.nome = "Informe seu nome.";
   if (!sanitizeText(form.empresa)) errors.empresa = "Informe a empresa.";
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(form.email.trim())) errors.email = "Informe um e-mail corporativo válido.";
-  if (form.telefone.replace(/\D/g, "").length < 10) errors.telefone = "Informe um telefone brasileiro válido.";
-  if (!/^[A-Za-z]{2}$/.test(form.estado.trim())) errors.estado = "Informe a UF com duas letras.";
-  if (!sanitizeText(form.perfil)) errors.perfil = "Selecione o perfil de cliente.";
-  if (!sanitizeText(form.desafio)) errors.desafio = "Selecione o principal desafio.";
-  if (!sanitizeText(form.prazo)) errors.prazo = "Selecione o prazo.";
-  if (sanitizeText(form.mensagem).length < 20) errors.mensagem = "Descreva o contexto com pelo menos 20 caracteres.";
+  if (form.telefone.replace(/\D/g, "").length < 10) errors.telefone = "Informe um telefone brasileiro válido com DDD.";
+  if (!sanitizeText(form.perfil)) errors.perfil = "Selecione o tipo de demanda.";
+  if (sanitizeText(form.mensagem).length < 10) errors.mensagem = "Descreva sua demanda com pelo menos 10 caracteres.";
   if (sanitizeText(form.mensagem).length > 1600) errors.mensagem = "Resuma o contexto em até 1600 caracteres.";
   if (!form.lgpd) errors.lgpd = "É necessário autorizar o contato para enviar sua solicitação.";
   if (form.website && form.website.trim()) errors.website = "Falha na validação anti-spam.";

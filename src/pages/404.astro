@@ -3,13 +3,22 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { withBase } from "@lib/urls";
 ---
 
-<BaseLayout title="Página não encontrada" description="A página solicitada não foi encontrada." path="/404/">
-  <section class="min-h-[70vh] bg-navy-950 px-5 pb-24 pt-40 text-white sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-3xl">
-      <p class="text-sm font-bold uppercase tracking-[0.18em] text-energy-300">404</p>
-      <h1 class="mt-4 text-balance text-4xl font-semibold tracking-normal sm:text-5xl">Página não encontrada.</h1>
-      <p class="mt-5 text-base leading-8 text-slate-300">O endereço solicitado não existe ou foi movido. Volte ao início para navegar pelas áreas principais da Conexium Engenharia.</p>
-      <a href={withBase("/")} class="mt-8 inline-flex rounded-md bg-energy-400 px-5 py-3 text-sm font-semibold text-navy-950 transition hover:bg-energy-300">Voltar ao início</a>
+<BaseLayout title="Página não encontrada | Conexium Engenharia" description="A página solicitada não foi encontrada." path="/404/">
+  <section class="min-h-[70vh] flex items-center bg-[#001816] py-24 text-white">
+    <div class="cx-shell max-w-2xl text-center">
+      <p class="text-sm font-bold tracking-[0.2em] text-[#E6B64C] uppercase">ERRO 404</p>
+      <h1 class="font-serif-display mt-4 text-4xl sm:text-5xl text-white">Página não encontrada</h1>
+      <p class="mt-4 text-sm leading-relaxed text-[#D8D8D5]">
+        O endereço solicitado não existe ou foi reorganizado no novo site da Conexium Engenharia.
+      </p>
+      <div class="mt-8 flex justify-center gap-4">
+        <a href={withBase("/")} class="btn-gold">
+          Voltar ao início →
+        </a>
+        <a href={withBase("/servicos/")} class="btn-secondary-dark">
+          Ver serviços
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

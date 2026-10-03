@@ -26,7 +26,8 @@ const {
 const canonical = absoluteUrl(path);
 const fontUrl = withBase("/fonts/inter-latin.woff2");
 const ogImageUrl = absoluteUrl("/brand/conexium-og-image.png");
-const pageTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const pageTitle = title.includes("Conexium Engenharia") ? title : `${title} | Conexium Engenharia`;
+
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -35,23 +36,21 @@ const organizationJsonLd = {
   email: site.email,
   logo: absoluteUrl("/brand/conexium-logo.svg"),
 };
+
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: site.name,
   url: site.url,
   serviceType: [
-    "Engenharia elétrica",
-    "Consultoria técnico-regulatória",
-    "Perícias técnicas",
-    "Elaboração de quesitos",
-    "Projetos elétricos",
-    "Inteligência energética",
-    "Eletromobilidade",
+    "Engenharia e Projetos Elétricos",
+    "Consultoria Técnico-Regulatória",
+    "Perícias, Quesitos e Pareceres Técnicos",
   ],
   areaServed: "Brasil",
   description: site.description,
 };
+
 const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [])];
 ---
 
@@ -62,10 +61,10 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https: http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:*; frame-src https://challenges.cloudflare.com; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https: http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:*; frame-src https://challenges.cloudflare.com; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;"
     />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#061525" />
+    <meta name="theme-color" content="#001816" />
     <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content={site.name} />
@@ -82,11 +81,17 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
     <link rel="apple-touch-icon" href={withBase("/brand/conexium-favicon.svg")} />
     <link rel="manifest" href={withBase("/manifest.webmanifest")} />
     <title>{pageTitle}</title>
+
+    <!-- Google Fonts for Editorial Elegance (DM Serif Display) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
     <style is:inline set:html={`@font-face{font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;src:url("${fontUrl}") format("woff2");}`} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonPayload)} />
   </head>
-  <body class="bg-cx-void text-cx-text">
-    <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-md focus:bg-cx-gold focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-cx-void">
+  <body class="bg-[#001816] text-[#ECEDE9] antialiased">
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-md focus:bg-[#E6B64C] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#001816]">
       Pular para o conteúdo
     </a>
     <Header currentPath={path} />
@@ -107,7 +112,7 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
             }
           }
         },
-        { rootMargin: "0px 0px -80px 0px", threshold: 0.12 },
+        { rootMargin: "0px 0px -40px 0px", threshold: 0.1 },
       );
       document.querySelectorAll(".reveal, [data-reveal]").forEach((node) => revealObserver.observe(node));
     </script>

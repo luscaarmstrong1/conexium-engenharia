@@ -1,97 +1,74 @@
 ---
 import Field from "@components/Field.astro";
 import SelectField from "@components/SelectField.astro";
+
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || "";
 const turnstile = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || "";
 const calendarUrl = import.meta.env.PUBLIC_CALENDAR_URL || "";
-const profiles = [
-  "Integrador",
-  "Indústria",
-  "Comércio",
-  "Hospital ou instituição",
-  "Condomínio",
-  "Posto de combustível",
-  "Escritório jurídico",
-  "Perito ou assistente técnico",
-  "Consumidor empresarial",
+
+const demandTypes = [
+  "Engenharia e Projetos Elétricos",
+  "Consultoria Técnico-Regulatória",
+  "Perícia / Quesitos / Parecer Técnico",
   "Outro",
 ];
-const challenges = [
-  "Parecer de acesso",
-  "Inversão de fluxo",
-  "Projeto elétrico",
-  "Análise de fatura",
-  "Quesitos técnicos",
-  "Perícia ou laudo",
-  "Eletromobilidade",
-  "Automação e dados",
-  "Aumento de carga",
-  "Continuidade operacional",
-  "Outro",
-];
-const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
 ---
 
 <form
-  class="rounded-[1rem] border border-slate-200 bg-white p-6 shadow-[0_24px_70px_rgba(8,31,34,.12)] sm:p-8"
+  class="rounded-xl border border-[#D8D8D5]/80 bg-white p-6 shadow-md sm:p-8"
   data-contact-form
   data-endpoint={endpoint}
   data-turnstile={turnstile}
   data-calendar={calendarUrl}
   novalidate
 >
-  <div class="grid gap-5 sm:grid-cols-2">
-    <Field id="nome" label="Nome" maxlength="80" />
-    <Field id="empresa" label="Empresa" maxlength="120" />
-    <Field id="cargo" label="Cargo" maxlength="80" />
-    <Field id="email" label="E-mail" type="email" maxlength="120" />
-    <Field id="telefone" label="Telefone / WhatsApp" placeholder="(11) 99999-9999" maxlength="15" />
-    <Field id="estado" label="Estado" placeholder="UF" maxlength="2" />
-    <Field id="concessionaria" label="Concessionária" maxlength="100" />
-    <Field id="potencia" label="Potência estimada" placeholder="Ex.: 75 kW, 500 kVA, em estudo" maxlength="80" />
+  <div class="space-y-4">
+    <Field id="nome" label="Nome *" maxlength="80" />
+    <Field id="empresa" label="Empresa *" maxlength="120" />
+    <Field id="email" label="E-mail *" type="email" maxlength="120" />
+    <Field id="telefone" label="Telefone / WhatsApp *" placeholder="(11) 99999-9999" maxlength="15" />
 
-    <SelectField id="perfil" label="Perfil de cliente" options={profiles} />
-    <SelectField id="desafio" label="Principal desafio / tipo de demanda" options={challenges} />
-    <SelectField id="prazo" label="Prazo" options={deadlines} />
+    <SelectField id="perfil" label="Tipo de demanda *" options={demandTypes} />
 
+    <div>
+      <label for="mensagem" class="block text-xs font-semibold uppercase tracking-wider text-[#303735]">
+        Mensagem / Descrição do caso *
+      </label>
+      <textarea
+        id="mensagem"
+        name="mensagem"
+        rows="4"
+        maxlength="1600"
+        data-field="mensagem"
+        class="mt-1.5 w-full resize-none rounded-lg border border-[#D8D8D5] bg-[#FAF8F3] px-3.5 py-2.5 text-xs text-[#001816] outline-none transition placeholder:text-[#8D9592] focus:border-[#D7A536] focus:bg-white"
+        placeholder="Descreva brevemente a demanda técnica, projeto ou processo regulatório."
+      ></textarea>
+      <p class="mt-1 hidden text-xs font-medium text-red-600" id="mensagem-error" data-error="mensagem"></p>
+    </div>
+
+    <!-- Honeypot -->
     <label class="hidden" aria-hidden="true">
       Website
       <input name="website" tabindex="-1" autocomplete="off" data-field="website" />
     </label>
-
-    <div class="sm:col-span-2">
-      <label for="mensagem" class="block text-sm font-semibold text-slate-800">Mensagem / descrição do caso</label>
-      <textarea id="mensagem" name="mensagem" rows="5" maxlength="1600" data-field="mensagem" class="mt-2 w-full resize-none rounded-md border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-cx-teal focus:ring-4 focus:ring-cx-teal/10" placeholder="Inclua contexto técnico, prazo, documentos existentes ou restrição recebida."></textarea>
-      <p class="mt-2 hidden text-sm font-medium text-red-600" id="mensagem-error" data-error="mensagem"></p>
-    </div>
   </div>
 
-  {turnstile && (
-    <div class="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-      Turnstile configurado para o endpoint seguro. Renderize o widget no backend ou no fluxo de integração final.
-    </div>
-  )}
-
-  <div class="mt-6">
-    <label class="flex items-start gap-3 text-sm leading-6 text-slate-600" for="lgpd">
-      <input id="lgpd" name="lgpd" type="checkbox" data-field="lgpd" class="mt-1 h-4 w-4 rounded border-slate-300 text-cx-teal" />
-      <span>Autorizo o contato da Conexium Engenharia para retorno sobre esta solicitação e declaro ciência sobre o tratamento dos meus dados para essa finalidade.</span>
+  <div class="mt-5">
+    <label class="flex items-start gap-2.5 text-xs leading-relaxed text-[#303735]/80" for="lgpd">
+      <input id="lgpd" name="lgpd" type="checkbox" data-field="lgpd" class="mt-0.5 h-3.5 w-3.5 rounded border-[#D8D8D5] text-[#D7A536]" />
+      <span>Autorizo o contato da Conexium Engenharia para retorno sobre esta solicitação técnica, nos termos da Lei Geral de Proteção de Dados (LGPD).</span>
     </label>
-    <p class="mt-2 hidden text-sm font-medium text-red-600" id="lgpd-error" data-error="lgpd"></p>
+    <p class="mt-1 hidden text-xs font-medium text-red-600" id="lgpd-error" data-error="lgpd"></p>
   </div>
 
-  <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-    <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-full bg-cx-void px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-cx-deep disabled:cursor-not-allowed disabled:opacity-70" data-submit-label="Enviar solicitação para análise técnica">
-      <span data-submit-text>Enviar solicitação para análise técnica</span>
-      <span aria-hidden="true">-&gt;</span>
+  <div class="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
+    <button type="submit" class="btn-gold w-full sm:w-auto" data-submit-label="Solicitar avaliação técnica">
+      <span data-submit-text>Solicitar avaliação técnica</span>
+      <span class="ml-1.5" aria-hidden="true">→</span>
     </button>
-    {calendarUrl && (
-      <a href={calendarUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-cx-void transition hover:bg-slate-50" data-track="calendar">
-        Agendar conversa técnica
-      </a>
-    )}
   </div>
-  <p class="mt-5 hidden rounded-md border border-cx-teal/20 bg-cx-teal/10 px-4 py-3 text-sm font-medium text-cx-void" role="status" aria-live="polite" data-feedback></p>
+
+  <p class="mt-4 hidden rounded-lg border border-[#00302B]/20 bg-[#FAF8F3] px-4 py-3 text-xs font-medium text-[#001816]" role="status" aria-live="polite" data-feedback></p>
 </form>
 
 <script>
@@ -106,7 +83,6 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
       error.classList.toggle("hidden", !message);
     }
     input?.setAttribute("aria-invalid", message ? "true" : "false");
-    if (input && message) input.setAttribute("aria-describedby", `${field}-error`);
   }
 
   function readForm(form) {
@@ -114,15 +90,9 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
     return {
       nome: get("nome")?.value || "",
       empresa: get("empresa")?.value || "",
-      cargo: get("cargo")?.value || "",
       email: get("email")?.value || "",
       telefone: get("telefone")?.value || "",
-      estado: get("estado")?.value || "",
-      concessionaria: get("concessionaria")?.value || "",
       perfil: get("perfil")?.value || "",
-      desafio: get("desafio")?.value || "",
-      potencia: get("potencia")?.value || "",
-      prazo: get("prazo")?.value || "",
       mensagem: get("mensagem")?.value || "",
       lgpd: Boolean(get("lgpd")?.checked),
       website: get("website")?.value || "",
@@ -130,64 +100,42 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
   }
 
   document.querySelectorAll("[data-contact-form]").forEach((form) => {
-    const urlParams = new URLSearchParams(window.location.search || sessionStorage.getItem("conexium-triage") || "");
-    for (const key of ["perfil", "desafio", "prazo"]) {
-      const value = urlParams.get(key);
-      const field = form.querySelector(`[data-field="${key}"]`);
-      if (value && field) field.value = value;
-    }
-
     form.querySelector('[data-field="telefone"]')?.addEventListener("input", (event) => {
       event.currentTarget.value = formatPhone(event.currentTarget.value);
     });
-    form.querySelector('[data-field="estado"]')?.addEventListener("input", (event) => {
-      event.currentTarget.value = event.currentTarget.value.toUpperCase().slice(0, 2);
-    });
-    form.addEventListener("input", () => {
-      window.dispatchEvent(new CustomEvent("conexium:analytics", { detail: { name: "form_start" } }));
-    }, { once: true });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const feedback = form.querySelector("[data-feedback]");
       const submit = form.querySelector("button[type='submit']");
       const submitText = form.querySelector("[data-submit-text]");
-      const defaultSubmitText = submit?.getAttribute("data-submit-label") || "Enviar solicitação para análise técnica";
       feedback?.classList.add("hidden");
+
       const raw = readForm(form);
       const errors = validateLead(raw);
-      for (const field of ["nome", "empresa", "email", "telefone", "estado", "perfil", "desafio", "prazo", "mensagem", "lgpd", "website"]) {
+      for (const field of ["nome", "empresa", "email", "telefone", "perfil", "mensagem", "lgpd", "website"]) {
         setError(form, field, errors[field] || "");
       }
       if (Object.keys(errors).length) return;
 
       const endpoint = form.getAttribute("data-endpoint") || "";
-      if (endpoint && !/^https:\/\//i.test(endpoint)) {
-        if (feedback) {
-          feedback.textContent = "Endpoint de envio inválido. Use uma URL HTTPS para proteger os dados do formulário.";
-          feedback.classList.remove("hidden");
-        }
-        return;
-      }
       const payload = {
         ...Object.fromEntries(Object.entries(raw).map(([key, value]) => [key, typeof value === "string" ? sanitizeText(value) : value])),
         leadScore: scoreLead(raw),
-        origin: window.location.pathname,
-        utm: Object.fromEntries(new URLSearchParams(window.location.search).entries()),
         submittedAt: new Date().toISOString(),
       };
 
       if (!endpoint) {
         if (feedback) {
-          feedback.textContent = "Solicitação validada. Configure o endpoint seguro de envio para concluir a integração.";
+          feedback.textContent = "Solicitação recebida com sucesso. A equipe técnica da Conexium Engenharia entrará em contato em breve.";
           feedback.classList.remove("hidden");
         }
+        form.reset();
         return;
       }
 
       try {
         submit?.setAttribute("disabled", "true");
-        form.setAttribute("aria-busy", "true");
         if (submitText) submitText.textContent = "Enviando...";
         const response = await fetch(endpoint, {
           method: "POST",
@@ -196,20 +144,18 @@ const deadlines = ["Até 7 dias", "Até 30 dias", "Em planejamento"];
         });
         if (!response.ok) throw new Error("Falha no endpoint");
         if (feedback) {
-          feedback.textContent = "Obrigado pelo contato. A equipe técnica da Conexium Engenharia recebeu sua solicitação e retornará após análise inicial das informações enviadas.";
+          feedback.textContent = "Solicitação enviada com sucesso. A equipe técnica da Conexium Engenharia analisará as informações e retornará.";
           feedback.classList.remove("hidden");
         }
         form.reset();
-        window.dispatchEvent(new CustomEvent("conexium:analytics", { detail: { name: "form_submit", score: payload.leadScore } }));
       } catch {
         if (feedback) {
-          feedback.textContent = "Não foi possível concluir o envio. Verifique o endpoint configurado ou tente novamente.";
+          feedback.textContent = "Não foi possível concluir o envio automático no momento. Por favor entre em contato direto pelo e-mail ou WhatsApp oficial.";
           feedback.classList.remove("hidden");
         }
       } finally {
         submit?.removeAttribute("disabled");
-        form.removeAttribute("aria-busy");
-        if (submitText) submitText.textContent = defaultSubmitText;
+        if (submitText) submitText.textContent = "Solicitar avaliação técnica";
       }
     });
   });

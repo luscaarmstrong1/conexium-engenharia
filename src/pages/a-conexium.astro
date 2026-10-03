@@ -1,66 +1,165 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import PageHero from "@components/PageHero.astro";
-import SectionHeading from "@components/SectionHeading.astro";
-import CtaBand from "@components/CtaBand.astro";
 import { withBase } from "@lib/urls";
-
-const values = [
-  "Rigor técnico antes de promessa comercial",
-  "Responsabilidade documental",
-  "Engenharia baseada em dados verificáveis",
-  "Clareza para decisões executivas",
-  "Atuação B2B com confidencialidade",
-  "Transparência sobre limites técnicos e regulatórios",
-];
 ---
 
 <BaseLayout
-  title="A Conexium"
-  description="Conheça o posicionamento, método, missão, visão e valores da Conexium Engenharia."
+  title="Quem Somos | Conexium Engenharia"
+  description="Conheça a Conexium Engenharia, sua atuação técnica especializada, metodologia e compromisso com o setor elétrico."
   path="/a-conexium/"
 >
-  <PageHero
-    eyebrow="A Conexium"
-    title="A Conexium Engenharia atua onde projetos convencionais deixam de ser suficientes."
-    description="Somos uma consultoria técnica B2B voltada a engenharia elétrica, conexão, regulação e inteligência energética em projetos que exigem evidência, método e responsabilidade."
-    primaryHref={withBase("/contato/")}
-    primaryLabel="Solicitar diagnóstico"
-  />
+  <!-- Hero Section -->
+  <section class="border-b border-white/10 bg-[#001816] py-20 text-white">
+    <div class="cx-shell">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div>
+          <p class="text-xs font-bold tracking-[0.2em] text-[#E6B64C] uppercase">
+            QUEM SOMOS
+          </p>
+          <h1 class="font-serif-display mt-4 text-[clamp(2.4rem,3.6vw,3.6rem)] text-white leading-tight">
+            Engenharia, regulação e evidência técnica.
+          </h1>
+          <p class="mt-6 text-base leading-relaxed text-[#D8D8D5]/90">
+            A Conexium Engenharia atua com soluções técnicas para o setor elétrico, unindo conhecimento aprofundado de engenharia elétrica, análise regulatória e produção de evidências técnicas para decisões seguras.
+          </p>
+        </div>
 
-  <section class="bg-white px-5 py-24 sm:px-6 lg:px-8">
-    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr]">
-      <SectionHeading
-        eyebrow="Posicionamento"
-        title="Boutique técnica para decisões complexas de energia."
-        description="A atuação é desenhada para integradores, indústrias, comércios, hospitais, redes, logística, postos, frotas e empresas que precisam lidar com conexão, demanda, geração ou infraestrutura crítica."
-      />
-      <div class="grid gap-5 sm:grid-cols-2">
-        {[
-          ["Missão", "Transformar problemas elétricos e regulatórios complexos em decisões técnicas claras, documentadas e executáveis."],
-          ["Visão", "Ser referência em engenharia elétrica aplicada ao mercado de energia, conectando dados, regulação e infraestrutura."],
-          ["Método", "Diagnóstico, modelagem de evidências, estratégia de conexão ou implantação e entrega rastreável."],
-          ["Responsabilidade", "A comunicação técnica preserva limites profissionais e evita promessa de aprovação ou resultado sem base."],
-        ].map(([title, text]) => (
-          <article class="reveal rounded-md border border-slate-200 bg-white p-6 shadow-crisp">
-            <h2 class="text-lg font-semibold text-slate-950">{title}</h2>
-            <p class="mt-3 text-sm leading-7 text-slate-600">{text}</p>
-          </article>
-        ))}
+        <div class="overflow-hidden rounded-xl h-[340px] bg-[#001D1B] shadow-xl">
+          <img
+            src={withBase("/assets/conexium/analise-projeto-mesa.png")}
+            alt="Engenheiro examinando desenho elétrico sobre mesa"
+            class="h-full w-full object-cover"
+            loading="eager"
+            width="600"
+            height="340"
+          />
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="bg-slate-50 px-5 py-24 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-7xl">
-      <SectionHeading eyebrow="Valores" title="Critério técnico, dados e transparência em cada entrega." />
-      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {values.map((value) => (
-          <div class="reveal rounded-md border border-slate-200 bg-white p-5 text-sm font-semibold leading-7 text-slate-700 shadow-crisp">{value}</div>
-        ))}
+  <!-- Pilares Institucionais -->
+  <section class="bg-[#FAF8F3] py-20 text-[#303735]">
+    <div class="cx-shell">
+      <div class="max-w-2xl">
+        <p class="text-xs font-bold tracking-[0.16em] text-[#D7A536] uppercase">
+          NOSSO POSICIONAMENTO
+        </p>
+        <h2 class="font-serif-display mt-3 text-3xl text-[#001816]">
+          Rigor técnico e decisões fundamentadas
+        </h2>
+        <p class="mt-4 text-sm leading-relaxed text-[#303735]/85">
+          Não atuamos com soluções genéricas. Nosso foco é apoiar projetos, operações, contestações e processos que exigem responsabilidade técnica (ART) e rastreabilidade total de dados e normas.
+        </p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="rounded-xl border border-[#D8D8D5]/70 bg-white p-7 shadow-sm">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#FAF8F3] text-[#D7A536]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#001816]">Engenharia Elétrica</h3>
+          <p class="mt-3 text-xs leading-relaxed text-[#303735]/80">
+            Estudos de fluxo de potência, curto-circuito, coordenação e seletividade de proteção, e projetos executivos de infraestrutura em baixa e média tensão.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-[#D8D8D5]/70 bg-white p-7 shadow-sm">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#FAF8F3] text-[#D7A536]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#001816]">Domínio Regulatório</h3>
+          <p class="mt-3 text-xs leading-relaxed text-[#303735]/80">
+            Interpretação e aplicação direta de regulamentações ANEEL, PRODIST e normas de concessionárias, com foco em destravar conexões e eliminar exigências indevidas.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-[#D8D8D5]/70 bg-white p-7 shadow-sm">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#FAF8F3] text-[#D7A536]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <h3 class="text-lg font-bold text-[#001816]">Evidência Técnica</h3>
+          <p class="mt-3 text-xs leading-relaxed text-[#303735]/80">
+            Produção de quesitos, laudos e pareceres que resistem ao contraditório em disputas judiciais, procedimentos administrativos e arbitragens.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <CtaBand />
+  <!-- Metodologia Detalhada -->
+  <section class="border-y border-white/10 bg-[#001D1B] py-20 text-white">
+    <div class="cx-shell max-w-4xl">
+      <div class="text-center">
+        <p class="text-xs font-bold tracking-[0.16em] text-[#E6B64C] uppercase">
+          METODOLOGIA
+        </p>
+        <h2 class="font-serif-display mt-3 text-3xl text-white">
+          Como conduzimos cada caso
+        </h2>
+        <p class="mt-3 text-sm text-[#8D9592]">
+          Da demanda à solução, com rastreabilidade, rigor técnico e foco em resultados.
+        </p>
+      </div>
+
+      <div class="mt-12 space-y-6">
+        <div class="rounded-lg border border-white/10 bg-[#002320] p-6">
+          <div class="flex items-center gap-4">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6B64C] text-xs font-bold text-[#E6B64C]">01</span>
+            <h3 class="text-base font-bold text-white">Briefing e Definição de Escopo</h3>
+          </div>
+          <p class="mt-3 text-xs text-[#D8D8D5] leading-relaxed pl-12">
+            Entendimento minucioso da demanda técnica ou controvérsia, levantamento preliminar de documentos e delimitação precisa dos limites de atuação técnica.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-white/10 bg-[#002320] p-6">
+          <div class="flex items-center gap-4">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6B64C] text-xs font-bold text-[#E6B64C]">02</span>
+            <h3 class="text-base font-bold text-white">Análise Técnica e Normativa</h3>
+          </div>
+          <p class="mt-3 text-xs text-[#D8D8D5] leading-relaxed pl-12">
+            Modelagem, cálculos, simulações elétricas e confronto detalhado dos dados com normas ABNT, ANEEL, PRODIST e manuais das distribuidoras.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-white/10 bg-[#002320] p-6">
+          <div class="flex items-center gap-4">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6B64C] text-xs font-bold text-[#E6B64C]">03</span>
+            <h3 class="text-base font-bold text-white">Consolidação de Evidências</h3>
+          </div>
+          <p class="mt-3 text-xs text-[#D8D8D5] leading-relaxed pl-12">
+            Estruturação de matrizes de inconsistências, cronologias dos fatos elétricos, memórias de cálculo verificáveis e fundamentação técnica irrefutável.
+          </p>
+        </div>
+
+        <div class="rounded-lg border border-white/10 bg-[#002320] p-6">
+          <div class="flex items-center gap-4">
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6B64C] text-xs font-bold text-[#E6B64C]">04</span>
+            <h3 class="text-base font-bold text-white">Emissão de Parecer ou Documento Executivo</h3>
+          </div>
+          <p class="mt-3 text-xs text-[#D8D8D5] leading-relaxed pl-12">
+            Entrega formal de projetos, notas técnicas, quesitos ou laudos periciais, com a respectiva ART conforme o escopo contratado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#001816] py-16 text-white text-center">
+    <div class="cx-shell max-w-2xl">
+      <h2 class="font-serif-display text-2xl text-white">
+        Fale com um especialista da Conexium
+      </h2>
+      <p class="mt-3 text-sm text-[#D8D8D5]">
+        Apresente sua demanda e receba uma orientação inicial sobre o melhor caminho técnico.
+      </p>
+      <div class="mt-6">
+        <a href={withBase("/contato/")} class="btn-gold">
+          Solicitar diagnóstico técnico →
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

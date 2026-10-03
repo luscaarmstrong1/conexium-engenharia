@@ -1,18 +1,48 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import PageHero from "@components/PageHero.astro";
+import { site } from "@data/site";
 ---
 
-<BaseLayout title="Política de Privacidade" description="Política de privacidade da Conexium Engenharia." path="/politica-de-privacidade/">
-  <PageHero eyebrow="Privacidade" title="Política de Privacidade" description="Tratamos dados pessoais apenas para responder solicitações, qualificar contatos B2B e cumprir obrigações legais aplicáveis." />
-  <section class="bg-white px-5 py-20 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-4xl space-y-8 text-base leading-8 text-slate-700">
-      <p>Coletamos os dados informados voluntariamente em formulários, como nome, empresa, cargo, e-mail, telefone, estado, concessionária, perfil, desafio, prazo e mensagem.</p>
-      <p>Os dados são usados para retorno comercial e técnico, triagem de demanda, registro de origem, prevenção de spam e melhoria do atendimento. Não vendemos dados pessoais.</p>
-      <p>Quando houver endpoint externo, ele deve aplicar validação, limite de requisições, honeypot, sanitização, registro de origem e encaminhamento seguro ao CRM.</p>
-      <p>Analytics só é iniciado após consentimento de cookies. Não envie dados pessoais em campos de analytics.</p>
-      <p>Para solicitar acesso, correção ou exclusão de dados, contate a Conexium pelo e-mail institucional informado no rodapé.</p>
-      <p>GitHub Pages não permite configurar livremente todos os headers HTTP de segurança. Para reforço futuro, a migração para domínio próprio protegido por Cloudflare está preparada conceitualmente.</p>
+<BaseLayout
+  title="Política de Privacidade | Conexium Engenharia"
+  description="Política de Privacidade e Proteção de Dados da Conexium Engenharia."
+  path="/politica-de-privacidade/"
+>
+  <section class="border-b border-white/10 bg-[#001816] py-16 text-white">
+    <div class="cx-shell max-w-4xl">
+      <p class="text-xs font-bold tracking-[0.2em] text-[#E6B64C] uppercase">
+        TRANSPARÊNCIA E COMPLIANCE
+      </p>
+      <h1 class="font-serif-display mt-3 text-3xl sm:text-4xl text-white">
+        Política de Privacidade
+      </h1>
+      <p class="mt-3 text-sm text-[#D8D8D5]">
+        Tratamento de dados pessoais em conformidade com a Lei Geral de Proteção de Dados (LGPD).
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-[#FAF8F3] py-20 text-[#303735]">
+    <div class="cx-shell max-w-4xl space-y-6 text-sm leading-relaxed text-[#303735]/90">
+      <h2 class="font-serif-display text-xl text-[#001816]">1. Informações Coletadas</h2>
+      <p>
+        A Conexium Engenharia coleta exclusivamente os dados fornecidos de forma voluntária por meio de nossos formulários de contato e canais de comunicação, incluindo nome, empresa, e-mail corporativo, telefone e informações técnicas contextuais sobre a demanda apresentada.
+      </p>
+
+      <h2 class="font-serif-display text-xl text-[#001816]">2. Finalidade do Tratamento</h2>
+      <p>
+        Os dados coletados destinam-se única e exclusivamente ao retorno e atendimento da solicitação técnica enviada, qualificação inicial da demanda e eventual formalização de propostas comerciais de serviços de engenharia. Não comercializamos nem compartilhamos seus dados com terceiros para fins publicitários.
+      </p>
+
+      <h2 class="font-serif-display text-xl text-[#001816]">3. Sigilo Profissional e Segurança</h2>
+      <p>
+        Todas as informações e documentos técnicos recebidos são tratados com rigoroso dever de sigilo e confidencialidade profissional inerentes à prática da engenharia, sendo mantidos em ambientes seguros.
+      </p>
+
+      <h2 class="font-serif-display text-xl text-[#001816]">4. Contato do Encarregado</h2>
+      <p>
+        Para esclarecer dúvidas ou solicitar a atualização ou exclusão de dados pessoais da nossa base, entre em contato através do e-mail oficial: <a href={`mailto:${site.email}`} class="font-semibold text-[#001816] underline">{site.email}</a>.
+      </p>
     </div>
   </section>
 </BaseLayout>

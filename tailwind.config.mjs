@@ -4,43 +4,42 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["Inter", "Manrope", "ui-sans-serif", "system-ui", "sans-serif"],
+        serif: ["DM Serif Display", "Georgia", "serif"],
       },
       colors: {
         cx: {
-          void: "#061314",
-          abyss: "#081f22",
-          deep: "#0b2a2e",
-          navy: "#071f3f",
-          teal: "#0e7c73",
-          "teal-light": "#18b6a6",
-          cyan: "#58e0d4",
-          gold: "#c9a44e",
-          "gold-soft": "#e0c16d",
-          text: "#f3f7f6",
-          muted: "#9ab1ae",
-          "muted-2": "#6f8582",
-        },
-        navy: {
-          950: "#061314",
-          900: "#081f22",
-          800: "#0b2a2e",
-          700: "#071f3f",
-        },
-        energy: {
-          300: "#58e0d4",
-          400: "#18b6a6",
-          500: "#0e7c73",
-          600: "#0a625c",
+          green: {
+            950: "#001816",
+            900: "#001D1B",
+            850: "#002320",
+            800: "#002825",
+            700: "#00302B",
+          },
+          gold: {
+            400: "#F0C767",
+            500: "#E6B64C",
+            600: "#D7A536",
+          },
+          cream: {
+            100: "#FAF8F3",
+            200: "#F6F3EC",
+          },
+          gray: {
+            100: "#ECEDE9",
+            300: "#D8D8D5",
+            500: "#8D9592",
+            800: "#303735",
+          },
+          void: "#001816",
+          deep: "#001D1B",
+          surface: "#002320",
+          card: "#002825",
+          border: "rgba(255, 255, 255, 0.12)",
         },
       },
-      boxShadow: {
-        glow: "0 0 0 1px rgba(88,224,212,.16), 0 22px 65px rgba(5,19,20,.34)",
-        crisp: "0 18px 50px rgba(5,19,20,.16)",
-      },
-      backgroundImage: {
-        "hero-grid":
-          "linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px)",
+      maxWidth: {
+        "1440": "1440px",
       },
     },
   },

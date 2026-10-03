@@ -1,15 +1,42 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import PageHero from "@components/PageHero.astro";
 ---
 
-<BaseLayout title="Política de Cookies" description="Política de cookies da Conexium Engenharia." path="/politica-de-cookies/">
-  <PageHero eyebrow="Cookies" title="Política de Cookies" description="Usamos cookies necessários e, mediante consentimento, analytics para entender navegação sem coletar dados pessoais desnecessários." />
-  <section class="bg-white px-5 py-20 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-4xl space-y-8 text-base leading-8 text-slate-700">
-      <p>Cookies necessários mantêm preferências locais, como consentimento. Cookies analíticos só são ativados após aceite explícito no banner.</p>
-      <p>Se configurado, o Google Analytics é carregado com anonimização de IP e apenas após consentimento. Eventos acompanhados podem incluir cliques em CTAs, WhatsApp, formulário, artigos, cases e agenda.</p>
-      <p>Você pode limpar o armazenamento local do navegador para redefinir sua escolha de cookies.</p>
+<BaseLayout
+  title="Termos de Uso e Cookies | Conexium Engenharia"
+  description="Termos de Uso e Política de Cookies do site da Conexium Engenharia."
+  path="/politica-de-cookies/"
+>
+  <section class="border-b border-white/10 bg-[#001816] py-16 text-white">
+    <div class="cx-shell max-w-4xl">
+      <p class="text-xs font-bold tracking-[0.2em] text-[#E6B64C] uppercase">
+        TRANSPARÊNCIA E COMPLIANCE
+      </p>
+      <h1 class="font-serif-display mt-3 text-3xl sm:text-4xl text-white">
+        Termos de Uso e Cookies
+      </h1>
+      <p class="mt-3 text-sm text-[#D8D8D5]">
+        Diretrizes de navegação e uso das ferramentas da Conexium Engenharia.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-[#FAF8F3] py-20 text-[#303735]">
+    <div class="cx-shell max-w-4xl space-y-6 text-sm leading-relaxed text-[#303735]/90">
+      <h2 class="font-serif-display text-xl text-[#001816]">1. Natureza do Conteúdo</h2>
+      <p>
+        Os artigos, notas técnicas e materiais disponibilizados neste site possuem finalidade exclusivamente informativa e educacional. Não constituem laudo, projeto elétrico formal ou parecer técnico vinculante para casos concretos sem a devida contratação e emissão de ART.
+      </p>
+
+      <h2 class="font-serif-display text-xl text-[#001816]">2. Utilização de Cookies</h2>
+      <p>
+        Utilizamos cookies essenciais necessários para o correto funcionamento do site e da navegação, além de cookies analíticos anônimos para mensurar audiência e desempenho das páginas, ativados apenas mediante consentimento do usuário.
+      </p>
+
+      <h2 class="font-serif-display text-xl text-[#001816]">3. Propriedade Intelectual</h2>
+      <p>
+        Todos os textos, diagramas e marcas são de propriedade exclusiva da Conexium Engenharia, sendo vedada a reprodução total ou parcial sem autorização prévia por escrito.
+      </p>
     </div>
   </section>
 </BaseLayout>

@@ -1,9 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import PageHero from "@components/PageHero.astro";
-import CtaBand from "@components/CtaBand.astro";
-import { absoluteUrl } from "@lib/urls";
+import { absoluteUrl, withBase } from "@lib/urls";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog")).filter((post) => post.data.status === "published");
@@ -16,6 +14,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const path = post.data.slug;
+
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -28,13 +27,52 @@ const articleJsonLd = {
 };
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} path={path} ogType="article" jsonLd={articleJsonLd}>
-  <PageHero eyebrow={post.data.category} title={post.data.title} description={post.data.description} />
-  <article class="content-page bg-[#f8faf9] px-5 py-20 sm:px-6 lg:px-8">
-    <div class="prose prose-slate mx-auto max-w-3xl prose-headings:tracking-normal prose-a:text-cx-teal">
-      <p class="text-sm font-semibold text-slate-500">{post.data.readingTime} · {post.data.date.toLocaleDateString("pt-BR")}</p>
+<BaseLayout
+  title={`${post.data.title} | Conexium Engenharia`}
+  description={post.data.description}
+  path={path}
+  ogType="article"
+  jsonLd={articleJsonLd}
+>
+  <!-- Hero Section -->
+  <section class="border-b border-white/10 bg-[#001816] py-16 text-white">
+    <div class="cx-shell max-w-4xl">
+      <a href={withBase("/conteudos/")} class="inline-flex items-center text-xs font-semibold text-[#E6B64C] hover:underline">
+        ← Voltar para Casos e Insights
+      </a>
+      <p class="mt-4 text-xs font-bold tracking-widest text-[#E6B64C] uppercase">
+        {post.data.category} · {post.data.readingTime}
+      </p>
+      <h1 class="font-serif-display mt-3 text-[clamp(2.2rem,3.4vw,3.2rem)] text-white leading-tight">
+        {post.data.title}
+      </h1>
+      <p class="mt-4 text-sm text-[#D8D8D5] leading-relaxed">
+        {post.data.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Conteúdo do Artigo -->
+  <article class="bg-[#FAF8F3] py-20 text-[#303735]">
+    <div class="cx-shell max-w-3xl prose prose-slate">
       <Content />
     </div>
   </article>
-  <CtaBand title="Precisa transformar esse tema em decisão técnica?" />
+
+  <!-- CTA pós-leitura -->
+  <section class="border-t border-white/10 bg-[#001D1B] py-16 text-white text-center">
+    <div class="cx-shell max-w-2xl">
+      <h2 class="font-serif-display text-2xl text-white">
+        Precisa aprofundar este tema no seu caso concreto?
+      </h2>
+      <p class="mt-3 text-sm text-[#D8D8D5]">
+        A equipe técnica da Conexium está à disposição para analisar documentos e viabilidade.
+      </p>
+      <div class="mt-6">
+        <a href={withBase("/contato/")} class="btn-gold">
+          Solicitar avaliação técnica →
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
