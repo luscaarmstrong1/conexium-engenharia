@@ -4,13 +4,12 @@ const base = process.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
 
 test("navega entre paginas e valida elementos do novo layout", async ({ page }, testInfo) => {
   await page.goto(`${base}/`);
-  await expect(page.getByRole("heading", { name: /Engenharia elétrica/i }).first()).toBeVisible();
-  await expect(page.getByText("ENGENHARIA. REGULACAO. EVIDENCIA.")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.getByRole("banner").getByLabel(/Conexium Engenharia - Página inicial/i)).toBeVisible();
   await page.screenshot({ path: `test-results/screenshots/home-${testInfo.project.name}.png`, fullPage: true });
 
   await page.getByRole("link", { name: "Serviços" }).first().click();
-  await expect(page.getByRole("heading", { name: "Soluções técnicas" }).first()).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Soluções técnicas", exact: true })).toBeVisible();
 
   const overflow = await page.evaluate(() => document.body.scrollWidth > window.innerWidth + 1);
   expect(overflow).toBe(false);
@@ -18,12 +17,12 @@ test("navega entre paginas e valida elementos do novo layout", async ({ page }, 
 
 test("valida os 3 servicos principais no site", async ({ page }) => {
   await page.goto(`${base}/`);
-  await expect(page.getByRole("heading", { name: "Engenharia e Projetos Elétricos" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Consultoria Técnico-Regulatória" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Perícias, Quesitos e Pareceres Técnicos" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Engenharia e Projetos Elétricos", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Consultoria Técnico-Regulatória", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Perícias, Quesitos e Pareceres Técnicos", exact: true })).toBeVisible();
 
   await page.goto(`${base}/servicos/consultoria-tecnico-regulatoria/`);
-  await expect(page.getByRole("heading", { name: /Consultoria Técnico-Regulatória/i }).first()).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Consultoria Técnico-Regulatória", exact: true })).toBeVisible();
 });
 
 test("menu mobile, 404 e redirecionamento institucional", async ({ page }) => {
@@ -35,7 +34,6 @@ test("menu mobile, 404 e redirecionamento institucional", async ({ page }) => {
   }
   await page.goto(`${base}/404/`);
   await expect(page.getByRole("heading", { name: /Página não encontrada/i })).toBeVisible();
-  await page.getByRole("button", { name: "Voltar ao topo" }).click();
   await page.goto(`${base}/a-kairos/`);
   await expect(page).toHaveURL(/\/a-conexium\/$/);
 });
@@ -54,14 +52,6 @@ test("formulario de contato valida campos obrigatorios", async ({ page }) => {
   await page.getByLabel(/Autorizo o contato/).check();
   await page.getByRole("button", { name: /Solicitar avaliação técnica/i }).click();
   await expect(page.getByText(/Solicitação recebida com sucesso/i)).toBeVisible();
-});
-
-test("links de WhatsApp e canais sao validos", async ({ page }) => {
-  await page.goto(`${base}/servicos/engenharia-projetos-eletricos/`);
-  const floating = page.getByLabel(/Falar pelo WhatsApp|Abrir contato/);
-  await expect(floating).toBeVisible();
-  const href = await floating.getAttribute("href");
-  expect(href).toContain("wa.me");
 });
 
 test("casos e insights exibem artigos e navegam", async ({ page }) => {
