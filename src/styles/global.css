@@ -1,33 +1,7 @@
+@import "./tokens.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  color-scheme: dark;
-  --green-950: #001816;
-  --green-900: #001D1B;
-  --green-850: #002320;
-  --green-800: #002825;
-  --green-700: #00302B;
-
-  --gold-400: #F0C767;
-  --gold-500: #E6B64C;
-  --gold-600: #D7A536;
-
-  --cream-100: #FAF8F3;
-  --cream-200: #F6F3EC;
-
-  --white: #FFFFFF;
-  --gray-100: #ECEDE9;
-  --gray-300: #D8D8D5;
-  --gray-500: #8D9592;
-  --gray-800: #303735;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 html {
   scroll-behavior: smooth;
@@ -36,75 +10,88 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background-color: var(--green-950);
-  color: var(--gray-100);
+  background-color: var(--brand-950);
+  color: var(--ivory-100);
   font-family: "Inter", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .font-serif-display {
   font-family: "DM Serif Display", "Georgia", "Times New Roman", serif;
   font-weight: 400;
-  letter-spacing: -0.01em;
 }
 
+/* Global Container adhering to exact 1320px specification */
 .cx-shell {
-  width: 100%;
-  max-width: 1440px;
+  width: min(calc(100% - 96px), 1320px);
   margin-inline: auto;
-  padding-inline: 1.25rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1280px) {
   .cx-shell {
-    padding-inline: 1.5rem;
+    width: 100%;
+    padding-inline: 40px;
   }
 }
 
-@media (min-width: 1280px) {
+@media (max-width: 768px) {
   .cx-shell {
-    padding-inline: 3rem;
+    padding-inline: 32px;
   }
 }
 
-@media (min-width: 1536px) {
+@media (max-width: 560px) {
   .cx-shell {
-    padding-inline: 4rem;
+    padding-inline: 20px;
   }
 }
 
-/* Discrete buttons as specified */
+/* Technical Blueprint Grid Pattern for Brand Authority */
+.tech-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* CTAs with authoritative presence */
 .btn-gold {
   background-color: var(--gold-500);
-  color: var(--green-950);
+  color: #10201C;
   font-weight: 600;
-  font-size: 0.875rem;
-  border-radius: 7px;
+  font-size: 0.9375rem;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.4rem;
-  transition: all 180ms ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  border: 1px solid transparent;
 }
 
 .btn-gold:hover {
   background-color: var(--gold-400);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(230, 182, 76, 0.25);
+  box-shadow: 0 6px 20px rgba(222, 169, 69, 0.3);
 }
 
 .btn-secondary-dark {
   background-color: transparent;
   color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   font-weight: 500;
-  font-size: 0.875rem;
-  border-radius: 7px;
+  font-size: 0.9375rem;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.4rem;
-  transition: all 180ms ease;
+  transition: all var(--transition);
 }
 
 .btn-secondary-dark:hover {
@@ -113,21 +100,42 @@ body {
   transform: translateY(-1px);
 }
 
-/* Service Cards */
+/* Header Action Button */
+.btn-header-cta {
+  background-color: var(--gold-500);
+  color: #10201C;
+  font-weight: 600;
+  font-size: 0.875rem;
+  height: 44px;
+  padding: 0 24px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+.btn-header-cta:hover {
+  background-color: var(--gold-400);
+  transform: translateY(-1px);
+}
+
+/* Service Card Design */
 .cx-service-card {
-  background-color: var(--green-850);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  transition: transform 200ms ease, border-color 200ms ease;
+  min-height: 510px;
+  transition: transform var(--transition), border-color var(--transition);
 }
 
 .cx-service-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(230, 182, 76, 0.35);
+  border-color: rgba(222, 169, 69, 0.4);
 }
 
-/* Reveal transition */
+/* Subtle reveal */
 .reveal {
   opacity: 0;
   transform: translateY(16px);

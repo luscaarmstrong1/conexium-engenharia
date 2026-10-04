@@ -1,0 +1,40 @@
+:root {
+  /* Brand palette */
+  --brand-950: #001916;
+  --brand-900: #00211D;
+  --brand-850: #002822;
+  --brand-800: #003129;
+  --brand-750: #073A31;
+
+  /* Gold accents */
+  --gold-700: #B98226;
+  --gold-600: #CC9734;
+  --gold-500: #DEA945;
+  --gold-400: #EDC46B;
+
+  /* Editorial light surfaces */
+  --ivory-50: #FCFBF7;
+  --ivory-100: #F7F4ED;
+  --ivory-200: #EFEAE0;
+
+  /* Neutral text */
+  --ink-950: #101816;
+  --ink-900: #18211F;
+  --ink-700: #48524F;
+  --ink-500: #747C78;
+
+  --white: #FFFFFF;
+
+  --border-dark: rgba(255, 255, 255, 0.10);
+  --border-light: rgba(18, 34, 30, 0.10);
+
+  /* Spacing & Layout */
+  --container: 1320px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 8px 24px rgba(0, 20, 17, 0.06);
+  --shadow-md: 0 20px 50px rgba(0, 20, 17, 0.10);
+  --transition: 180ms ease;
+}

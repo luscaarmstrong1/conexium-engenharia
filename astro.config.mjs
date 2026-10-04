@@ -1,12 +1,14 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
-const siteUrl = process.env.PUBLIC_SITE_URL || "https://conexiumengenharia.com.br";
-const basePath = process.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
+// In Vercel or custom domain environments, basePath is root "/".
+// In GitHub Pages (when PUBLIC_BASE_PATH is explicitly set), it defaults to repository subpath.
+const siteUrl = process.env.PUBLIC_SITE_URL || "https://conexium-engenharia.vercel.app";
+const basePath = process.env.PUBLIC_BASE_PATH !== undefined ? process.env.PUBLIC_BASE_PATH : "";
 
 export default defineConfig({
   site: siteUrl,
-  base: basePath,
+  base: basePath || undefined,
   trailingSlash: "always",
   integrations: [
     sitemap({

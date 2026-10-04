@@ -1,4 +1,4 @@
-export const basePath = import.meta.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
+export const basePath = import.meta.env.PUBLIC_BASE_PATH ?? "";
 
 export const site = {
   name: "Conexium Engenharia",

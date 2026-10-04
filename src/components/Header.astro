@@ -11,44 +11,44 @@ function isActive(href: string) {
 }
 ---
 
-<header class="sticky inset-x-0 top-0 z-50 h-[80px] border-b border-white/10 bg-[#001816]/90 text-white backdrop-blur-md transition-colors" data-site-header>
+<header class="sticky inset-x-0 top-0 z-50 h-[80px] border-b border-white/[0.06] bg-[#001916]/85 text-white backdrop-blur-[12px] transition-colors" data-site-header>
   <div class="cx-shell flex h-full items-center justify-between">
-    <!-- Brand Logo -->
-    <a href={withBase("/")} class="flex items-center gap-3" aria-label={`${site.name} - Página inicial`}>
-      <img src={withBase("/brand/conexium-logo-white.svg")} alt={site.name} class="h-10 w-auto" width="220" height="40" />
+    <!-- Brand Logo: 160px de largura com presença nítida -->
+    <a href={withBase("/")} class="flex items-center" aria-label={`${site.name} - Página inicial`}>
+      <img src={withBase("/brand/conexium-logo-white.svg")} alt={site.name} class="h-9 w-auto max-w-[170px]" width="170" height="38" />
     </a>
 
-    <!-- Desktop Nav: Início | Quem somos | Serviços | Casos e insights | Contato -->
-    <nav class="hidden items-center gap-8 md:flex" aria-label="Navegação principal">
+    <!-- Desktop Nav: Início | Quem somos | Serviços | Casos e insights | Contato com gap de 34px -->
+    <nav class="hidden items-center gap-[34px] md:flex" aria-label="Navegação principal">
       {navItems.map((item) => (
         <a
           href={withBase(item.href)}
           class:list={[
-            "relative text-sm font-medium transition-colors hover:text-white",
-            isActive(item.href) ? "text-white" : "text-[#D8D8D5]/80",
+            "relative text-[14px] font-medium transition-colors hover:text-white",
+            isActive(item.href) ? "text-white" : "text-[#747C78]/90 hover:text-[#F7F4ED]",
           ]}
           aria-current={isActive(item.href) ? "page" : undefined}
         >
           {item.label}
           {isActive(item.href) && (
-            <span class="absolute -bottom-2 left-0 h-[2px] w-full rounded-full bg-[#E6B64C]" aria-hidden="true" />
+            <span class="absolute -bottom-2.5 left-0 h-[2px] w-full rounded-full bg-[#DEA945]" aria-hidden="true" />
           )}
         </a>
       ))}
     </nav>
 
-    <!-- Header Action: Solicitar diagnóstico -->
+    <!-- Header CTA: 44px de altura, 24px de padding -->
     <div class="hidden items-center md:flex">
       <a
         href={withBase("/contato/")}
-        class="btn-gold"
+        class="btn-header-cta"
         data-track="cta-header"
       >
         Solicitar diagnóstico <span class="ml-1.5" aria-hidden="true">→</span>
       </a>
     </div>
 
-    <!-- Mobile Menu Button -->
+    <!-- Mobile Menu Toggle -->
     <button
       type="button"
       class="grid h-10 w-10 place-items-center rounded-md border border-white/15 bg-white/5 md:hidden"
@@ -63,14 +63,14 @@ function isActive(href: string) {
   </div>
 
   <!-- Mobile Nav Panel -->
-  <nav id="mobile-menu" class="hidden border-t border-white/10 bg-[#001D1B] px-5 pb-6 pt-4 shadow-2xl md:hidden" aria-label="Navegação móvel" data-mobile-menu>
-    <div class="flex flex-col gap-2">
+  <nav id="mobile-menu" class="hidden border-t border-white/10 bg-[#00211D] px-6 pb-6 pt-4 shadow-2xl md:hidden" aria-label="Navegação móvel" data-mobile-menu>
+    <div class="flex flex-col gap-2.5">
       {navItems.map((item) => (
         <a
           href={withBase(item.href)}
           class:list={[
             "rounded-md px-3 py-2.5 text-sm font-medium transition",
-            isActive(item.href) ? "bg-[#002825] text-[#E6B64C]" : "text-white/80 hover:bg-white/5 hover:text-white",
+            isActive(item.href) ? "bg-[#002822] text-[#DEA945]" : "text-white/80 hover:bg-white/5 hover:text-white",
           ]}
           aria-current={isActive(item.href) ? "page" : undefined}
         >
@@ -91,6 +91,16 @@ function isActive(href: string) {
   const menu = document.querySelector("[data-mobile-menu]");
   const openIcon = document.querySelector("[data-menu-icon-open]");
   const closeIcon = document.querySelector("[data-menu-icon-close]");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+      header?.classList.add("bg-[#001916]/96");
+      header?.classList.remove("bg-[#001916]/85");
+    } else {
+      header?.classList.remove("bg-[#001916]/96");
+      header?.classList.add("bg-[#001916]/85");
+    }
+  }, { passive: true });
 
   function setMenu(open) {
     button?.setAttribute("aria-expanded", String(open));
