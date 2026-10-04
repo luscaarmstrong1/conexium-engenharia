@@ -24,6 +24,6 @@ describe("routes and SEO helpers", () => {
 
   it("gera URLs com base técnica e domínio canônico da Conexium", () => {
     expect(withBase("/contato/")).toBe("/contato/");
-    expect(absoluteUrl("/servicos/")).toBe("https://conexiumengenharia.com.br/servicos/");
+    expect(absoluteUrl("/servicos/")).toBe("https://conexium-engenharia.vercel.app/servicos/");
   });
 });

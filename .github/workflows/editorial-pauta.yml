@@ -20,20 +20,20 @@ jobs:
             const date = new Date().toISOString().slice(0, 10);
             const title = `Pauta técnica semanal - ${date}`;
             const body = [
-              "Checklist editorial para conteúdos da Kairós Engenharia:",
+              "Checklist editorial para conteúdos da Conexium Engenharia:",
               "",
               "- [ ] Tema técnico definido",
-              "- [ ] Categoria selecionada: Regulação, Geração distribuída, Engenharia elétrica, Eletromobilidade, Inteligência energética ou Projetos e infraestrutura",
-              "- [ ] Fontes primárias listadas",
-              "- [ ] Afirmações regulatórias revisadas por humano",
+              "- [ ] Categoria selecionada: Engenharia e Projetos Elétricos, Consultoria Técnico-Regulatória ou Perícias e Pareceres Técnicos",
+              "- [ ] Fontes primárias normativas listadas (ABNT, ANEEL, PRODIST)",
+              "- [ ] Afirmações técnicas e regulatórias revisadas por engenheiro habilitado",
               "- [ ] Status inicial em Markdown como `draft` ou `review`",
-              "- [ ] Publicar apenas após revisão humana (`published`)",
+              "- [ ] Publicar apenas após validação formal (`published`)",
               "",
-              "Sugestões de pauta:",
-              "- Auditoria de parecer de acesso: erros comuns de documentação",
-              "- Aumento de carga para operações críticas",
-              "- Viabilidade técnica de hubs de recarga",
-              "- Indicadores de inteligência energética a partir de faturas"
+              "Sugestões de pauta técnica:",
+              "- Auditoria de parecer de acesso e contestação técnica fundamentada",
+              "- Estudos elétricos de curto-circuito e coordenação de proteção",
+              "- Quesitos técnicos e assistência pericial no setor elétrico",
+              "- Dimensionamento de subestações e adequações de demanda"
             ].join("\n");
             await github.rest.issues.create({
               owner: context.repo.owner,

@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const base = process.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
+const base = process.env.PUBLIC_BASE_PATH || "";
 
 export default defineConfig({
   testDir: "./e2e",
@@ -11,7 +11,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "node_modules/.bin/astro preview --host 127.0.0.1 --port 4321",
+    command: "node ./node_modules/astro/astro.js preview --host 127.0.0.1 --port 4321",
     url: `http://127.0.0.1:4321${base}/`,
     reuseExistingServer: true,
     timeout: 120000,

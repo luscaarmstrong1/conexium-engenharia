@@ -17,8 +17,8 @@ export const site = {
     "A Conexium Engenharia presta serviços técnicos de engenharia, consultoria e análise documental. Os conteúdos publicados têm caráter informativo e não substituem análise individual do caso concreto, projeto específico, parecer técnico formal ou orientação jurídica quando aplicável.",
   forensicNotice:
     "A atuação em perícias, quesitos e pareceres é de natureza técnica, limitada ao campo da engenharia elétrica. Demandas jurídicas, peticionamento e estratégia processual devem ser conduzidos por advogado habilitado.",
-  url: import.meta.env.PUBLIC_SITE_URL || "https://conexiumengenharia.com.br",
-  repositoryUrl: "https://github.com/luscaarmstrong1/kairos-engenharia",
+  url: import.meta.env.PUBLIC_SITE_URL || "https://conexium-engenharia.vercel.app",
+  repositoryUrl: "https://github.com/luscaarmstrong1/conexium-engenharia",
   email: "contato@conexiumengenharia.com.br",
   directEmail: "lucas@conexiumengenharia.com.br",
   phone: "+55 11 3842-9930",

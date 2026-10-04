@@ -3,8 +3,9 @@ import { join, relative } from "node:path";
 
 const root = process.cwd();
 const ignored = new Set([".git", "node_modules", "dist", ".astro", "test-results", "playwright-report"]);
-const allowedRepoPattern = /luscaarmstrong1|kairos-engenharia|marca técnica utilizada por Renovera/i;
-const badEncoding = /\u00c3|\ufffd|\u00e2\u20ac|\u00e2\u20a2|\u00e2\u2020\u2019/;
+const allowedRepoPattern = /luscaarmstrong1|conexium-engenharia|kairos-engenharia|marca técnica utilizada por Renovera/i;
+// Mojibake patterns: Ã followed by non-letters/symbols like Ã¡ Ã© Ã£, or replacement character \ufffd
+const badEncoding = /\u00c3[\u0080-\u00bf]|\ufffd|\u00e2\u20ac|\u00e2\u20a2|\u00e2\u2020\u2019/;
 const findings = [];
 
 function walk(dir) {

@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const base = process.env.PUBLIC_BASE_PATH || "/kairos-engenharia";
+const base = process.env.PUBLIC_BASE_PATH || "";
 
 test("navega entre paginas e valida elementos do novo layout", async ({ page }, testInfo) => {
   await page.goto(`${base}/`);

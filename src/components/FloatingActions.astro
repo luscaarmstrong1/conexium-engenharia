@@ -9,21 +9,10 @@ const whatsappHref = buildWhatsAppUrl(number, message);
 const safeHref = whatsappHref.startsWith("http") ? whatsappHref : withBase(whatsappHref);
 ---
 
-<div class="fixed bottom-5 right-5 z-40 flex flex-col gap-3">
-  <a
-    href={safeHref}
-    target={safeHref.startsWith("http") ? "_blank" : undefined}
-    rel={safeHref.startsWith("http") ? "noopener noreferrer" : undefined}
-    class="grid h-12 w-12 place-items-center rounded-md bg-energy-400 text-xl font-semibold text-navy-950 shadow-glow transition hover:bg-energy-300"
-    aria-label={safeHref.startsWith("http") ? "Falar pelo WhatsApp" : "Abrir contato"}
-    data-track="whatsapp"
-    data-message={message}
-  >
-    ◌
-  </a>
+<div class="fixed bottom-5 right-5 z-30">
   <button
     type="button"
-    class="grid h-12 w-12 place-items-center rounded-md border border-slate-200 bg-white text-lg font-semibold text-navy-950 shadow-crisp transition hover:bg-slate-50"
+    class="grid h-10 w-10 place-items-center rounded-md border border-white/10 bg-[#00211D]/90 text-sm font-semibold text-[#F7F4ED] shadow-lg backdrop-blur-sm transition hover:bg-[#002822] hover:text-[#DEA945]"
     aria-label="Voltar ao topo"
     data-top-button
   >

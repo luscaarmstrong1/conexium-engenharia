@@ -1,6 +1,4 @@
-# Replit
-
-Origem GitHub: https://github.com/luscaarmstrong1/kairos-engenharia
+Origem GitHub: https://github.com/luscaarmstrong1/conexium-engenharia
 
 ## Comandos
 
