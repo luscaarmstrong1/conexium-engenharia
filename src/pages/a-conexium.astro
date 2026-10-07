@@ -5,33 +5,38 @@ import { withBase } from "@lib/urls";
 
 <BaseLayout
   title="Quem Somos | Conexium Engenharia"
-  description="Conheça a Conexium Engenharia, sua atuação técnica especializada, metodologia e compromisso com o setor elétrico."
+  description="Conheça a Conexium Engenharia: consultoria técnica especializada em engenharia elétrica, domínio regulatório e evidências periciais para decisões seguras."
   path="/a-conexium/"
 >
-  <!-- Hero Section -->
-  <section class="border-b border-white/10 bg-[#001816] py-20 text-white">
-    <div class="cx-shell">
+  <!-- Hero Section Institucional -->
+  <section class="relative isolate overflow-hidden border-b border-white/[0.08] bg-[#001F1A] py-20 lg:py-24 text-white">
+    <div class="pointer-events-none absolute inset-0 tech-grid-pattern opacity-50" aria-hidden="true"></div>
+
+    <div class="cx-shell relative z-10">
       <div class="grid items-center gap-12 lg:grid-cols-2">
         <div>
-          <p class="text-xs font-bold tracking-[0.2em] text-[#E6B64C] uppercase">
-            QUEM SOMOS
-          </p>
-          <h1 class="font-serif-display mt-4 text-[clamp(2.4rem,3.6vw,3.6rem)] text-white leading-tight">
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+            <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] text-[#C79A3B] uppercase font-sans-tech">
+              QUEM SOMOS
+            </p>
+          </div>
+          <h1 class="font-serif-display text-[clamp(2.4rem,3.6vw,3.6rem)] text-white leading-tight">
             Engenharia, regulação e evidência técnica.
           </h1>
-          <p class="mt-6 text-base leading-relaxed text-[#D8D8D5]/90">
-            A Conexium Engenharia atua com soluções técnicas para o setor elétrico, unindo conhecimento aprofundado de engenharia elétrica, análise regulatória e produção de evidências técnicas para decisões seguras.
+          <p class="mt-6 text-[15.5px] sm:text-[16.5px] leading-relaxed text-[#F7F4EC]/85 font-sans-tech">
+            A Conexium Engenharia atua com soluções técnicas de alto padrão para o setor elétrico, unindo conhecimento aprofundado de engenharia elétrica, rigor regulatório da ANEEL e estruturação de evidências técnicas para decisões seguras.
           </p>
         </div>
 
-        <div class="overflow-hidden rounded-xl h-[340px] bg-[#001D1B] shadow-xl">
+        <div class="overflow-hidden rounded-[8px] h-[360px] bg-[#042923] shadow-xl border border-white/[0.08]">
           <img
             src={withBase("/assets/conexium/analise-projeto-mesa.png")}
-            alt="Engenheiro examinando desenho elétrico sobre mesa"
+            alt="Engenheiro examinando desenho elétrico e dados técnicos sobre mesa de trabalho"
             class="h-full w-full object-cover"
             loading="eager"
             width="600"
-            height="340"
+            height="360"
           />
         </div>
       </div>
@@ -39,47 +44,50 @@ import { withBase } from "@lib/urls";
   </section>
 
   <!-- Pilares Institucionais -->
-  <section class="bg-[#FAF8F3] py-20 text-[#303735]">
+  <section class="bg-[#F7F4EC] py-20 lg:py-24 text-[#18211F]">
     <div class="cx-shell">
       <div class="max-w-2xl">
-        <p class="text-xs font-bold tracking-[0.16em] text-[#D7A536] uppercase">
-          NOSSO POSICIONAMENTO
-        </p>
-        <h2 class="font-serif-display mt-3 text-3xl text-[#001816]">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+          <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.16em] text-[#C79A3B] uppercase font-sans-tech">
+            NOSSO POSICIONAMENTO
+          </p>
+        </div>
+        <h2 class="font-serif-display text-[clamp(28px,2.8vw,40px)] text-[#001F1A]">
           Rigor técnico e decisões fundamentadas
         </h2>
-        <p class="mt-4 text-sm leading-relaxed text-[#303735]/85">
+        <p class="mt-4 text-[15px] leading-relaxed text-[#18211F]/75 font-sans-tech">
           Não atuamos com soluções genéricas. Nosso foco é apoiar projetos, operações, contestações e processos que exigem responsabilidade técnica (ART) e rastreabilidade total de dados e normas.
         </p>
       </div>
 
-      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="rounded-xl border border-[#D8D8D5]/70 bg-white p-7 shadow-sm">
-          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#FAF8F3] text-[#D7A536]">
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 font-sans-tech">
+        <div class="rounded-[8px] border border-[#18211F]/10 bg-white p-7 shadow-sm transition hover:border-[#C79A3B]/50 hover:shadow-md">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded border border-[#C79A3B]/30 bg-[#F7F4EC] text-[#C79A3B]">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-[#001816]">Engenharia Elétrica</h3>
-          <p class="mt-3 text-xs leading-relaxed text-[#303735]/80">
+          <h3 class="font-serif-display text-xl font-bold text-[#001F1A]">Engenharia Elétrica</h3>
+          <p class="mt-3 text-[13.5px] leading-relaxed text-[#18211F]/75">
             Estudos de fluxo de potência, curto-circuito, coordenação e seletividade de proteção, e projetos executivos de infraestrutura em baixa e média tensão.
           </p>
         </div>
 
-        <div class="rounded-xl border border-[#D8D8D5]/70 bg-white p-7 shadow-sm">
-          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#FAF8F3] text-[#D7A536]">
+        <div class="rounded-[8px] border border-[#18211F]/10 bg-white p-7 shadow-sm transition hover:border-[#C79A3B]/50 hover:shadow-md">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded border border-[#C79A3B]/30 bg-[#F7F4EC] text-[#C79A3B]">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
           </div>
-          <h3 class="text-lg font-bold text-[#001816]">Domínio Regulatório</h3>
-          <p class="mt-3 text-xs leading-relaxed text-[#303735]/80">
+          <h3 class="font-serif-display text-xl font-bold text-[#001F1A]">Domínio Regulatório</h3>
+          <p class="mt-3 text-[13.5px] leading-relaxed text-[#18211F]/75">
             Interpretação e aplicação direta de regulamentações ANEEL, PRODIST e normas de concessionárias, com foco em destravar conexões e eliminar exigências indevidas.
           </p>
         </div>
 
-        <div class="rounded-xl border border-[#D8D8D5]/70 bg-white p-7 shadow-sm">
-          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#FAF8F3] text-[#D7A536]">
+        <div class="rounded-[8px] border border-[#18211F]/10 bg-white p-7 shadow-sm transition hover:border-[#C79A3B]/50 hover:shadow-md">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded border border-[#C79A3B]/30 bg-[#F7F4EC] text-[#C79A3B]">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
           </div>
-          <h3 class="text-lg font-bold text-[#001816]">Evidência Técnica</h3>
-          <p class="mt-3 text-xs leading-relaxed text-[#303735]/80">
+          <h3 class="font-serif-display text-xl font-bold text-[#001F1A]">Evidência Técnica</h3>
+          <p class="mt-3 text-[13.5px] leading-relaxed text-[#18211F]/75">
             Produção de quesitos, laudos e pareceres que resistem ao contraditório em disputas judiciais, procedimentos administrativos e arbitragens.
           </p>
         </div>
@@ -88,57 +96,57 @@ import { withBase } from "@lib/urls";
   </section>
 
   <!-- Metodologia Detalhada -->
-  <section class="border-y border-white/10 bg-[#001D1B] py-20 text-white">
-    <div class="cx-shell max-w-4xl">
+  <section class="border-y border-white/[0.08] bg-[#042923] py-20 lg:py-24 text-white">
+    <div class="cx-shell max-w-4xl font-sans-tech">
       <div class="text-center">
-        <p class="text-xs font-bold tracking-[0.16em] text-[#E6B64C] uppercase">
+        <p class="text-[11px] font-bold tracking-[0.16em] text-[#C79A3B] uppercase">
           METODOLOGIA
         </p>
         <h2 class="font-serif-display mt-3 text-3xl text-white">
           Como conduzimos cada caso
         </h2>
-        <p class="mt-3 text-sm text-[#8D9592]">
+        <p class="mt-3 text-[14.5px] text-[#A7ACA8]">
           Da demanda à solução, com rastreabilidade, rigor técnico e foco em resultados.
         </p>
       </div>
 
       <div class="mt-12 space-y-6">
-        <div class="rounded-lg border border-white/10 bg-[#002320] p-6">
+        <div class="rounded-[8px] border border-white/[0.08] bg-[#001F1A] p-6">
           <div class="flex items-center gap-4">
-            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6B64C] text-xs font-bold text-[#E6B64C]">01</span>
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#C79A3B] text-xs font-bold text-[#C79A3B]">01</span>
             <h3 class="text-base font-bold text-white">Briefing e Definição de Escopo</h3>
           </div>
-          <p class="mt-3 text-xs text-[#D8D8D5] leading-relaxed pl-12">
+          <p class="mt-3 text-[13.5px] text-[#A7ACA8] leading-relaxed pl-12">
             Entendimento minucioso da demanda técnica ou controvérsia, levantamento preliminar de documentos e delimitação precisa dos limites de atuação técnica.
           </p>
         </div>
 
-        <div class="rounded-lg border border-white/10 bg-[#002320] p-6">
+        <div class="rounded-[8px] border border-white/[0.08] bg-[#001F1A] p-6">
           <div class="flex items-center gap-4">
-            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6B64C] text-xs font-bold text-[#E6B64C]">02</span>
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#C79A3B] text-xs font-bold text-[#C79A3B]">02</span>
             <h3 class="text-base font-bold text-white">Análise Técnica e Normativa</h3>
           </div>
-          <p class="mt-3 text-xs text-[#D8D8D5] leading-relaxed pl-12">
+          <p class="mt-3 text-[13.5px] text-[#A7ACA8] leading-relaxed pl-12">
             Modelagem, cálculos, simulações elétricas e confronto detalhado dos dados com normas ABNT, ANEEL, PRODIST e manuais das distribuidoras.
           </p>
         </div>
 
-        <div class="rounded-lg border border-white/10 bg-[#002320] p-6">
+        <div class="rounded-[8px] border border-white/[0.08] bg-[#001F1A] p-6">
           <div class="flex items-center gap-4">
-            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6B64C] text-xs font-bold text-[#E6B64C]">03</span>
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#C79A3B] text-xs font-bold text-[#C79A3B]">03</span>
             <h3 class="text-base font-bold text-white">Consolidação de Evidências</h3>
           </div>
-          <p class="mt-3 text-xs text-[#D8D8D5] leading-relaxed pl-12">
+          <p class="mt-3 text-[13.5px] text-[#A7ACA8] leading-relaxed pl-12">
             Estruturação de matrizes de inconsistências, cronologias dos fatos elétricos, memórias de cálculo verificáveis e fundamentação técnica irrefutável.
           </p>
         </div>
 
-        <div class="rounded-lg border border-white/10 bg-[#002320] p-6">
+        <div class="rounded-[8px] border border-white/[0.08] bg-[#001F1A] p-6">
           <div class="flex items-center gap-4">
-            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#E6B64C] text-xs font-bold text-[#E6B64C]">04</span>
+            <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[#C79A3B] text-xs font-bold text-[#C79A3B]">04</span>
             <h3 class="text-base font-bold text-white">Emissão de Parecer ou Documento Executivo</h3>
           </div>
-          <p class="mt-3 text-xs text-[#D8D8D5] leading-relaxed pl-12">
+          <p class="mt-3 text-[13.5px] text-[#A7ACA8] leading-relaxed pl-12">
             Entrega formal de projetos, notas técnicas, quesitos ou laudos periciais, com a respectiva ART conforme o escopo contratado.
           </p>
         </div>
@@ -146,13 +154,13 @@ import { withBase } from "@lib/urls";
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-[#001816] py-16 text-white text-center">
+  <!-- CTA Final -->
+  <section class="bg-[#001F1A] py-16 text-white text-center font-sans-tech">
     <div class="cx-shell max-w-2xl">
       <h2 class="font-serif-display text-2xl text-white">
         Fale com um especialista da Conexium
       </h2>
-      <p class="mt-3 text-sm text-[#D8D8D5]">
+      <p class="mt-3 text-[14.5px] text-[#A7ACA8]">
         Apresente sua demanda e receba uma orientação inicial sobre o melhor caminho técnico.
       </p>
       <div class="mt-6">

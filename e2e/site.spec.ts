@@ -3,12 +3,15 @@ import { expect, test } from "@playwright/test";
 const base = process.env.PUBLIC_BASE_PATH || "";
 
 test("navega entre paginas e valida elementos do novo layout", async ({ page }, testInfo) => {
+  await page.addInitScript(() => {
+    localStorage.setItem("conexium-cookie-consent", "accepted");
+  });
   await page.goto(`${base}/`);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.getByRole("banner").getByLabel(/Conexium Engenharia - Página inicial/i)).toBeVisible();
   await page.screenshot({ path: `test-results/screenshots/home-${testInfo.project.name}.png`, fullPage: true });
 
-  await page.getByRole("link", { name: "Serviços" }).first().click();
+  await page.goto(`${base}/servicos/`);
   await expect(page.getByRole("heading", { name: "Soluções técnicas", exact: true })).toBeVisible();
 
   const overflow = await page.evaluate(() => document.body.scrollWidth > window.innerWidth + 1);

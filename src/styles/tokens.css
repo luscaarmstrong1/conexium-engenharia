@@ -1,40 +1,63 @@
 :root {
-  /* Brand palette */
-  --brand-950: #001916;
-  --brand-900: #00211D;
-  --brand-850: #002822;
-  --brand-800: #003129;
-  --brand-750: #073A31;
+  /* =========================================================================
+     PALETA OFICIAL CONEXIUM ENGENHARIA (Brand Guidelines)
+     Proporção aproximada: 70% Verde + Ivory, 20% Neutros, 10% Dourado
+     ========================================================================= */
 
-  /* Gold accents */
-  --gold-700: #B98226;
-  --gold-600: #CC9734;
-  --gold-500: #DEA945;
-  --gold-400: #EDC46B;
+  /* CONEXIUM GREEN (#001F1A) — Principal cor institucional */
+  --conexium-green: #001F1A;
+  --brand-950: #001F1A;
+  --brand-900: #042923;
+  --brand-850: #08332C;
+  --brand-800: #0D3E35;
+  --brand-750: #13493F;
 
-  /* Editorial light surfaces */
-  --ivory-50: #FCFBF7;
-  --ivory-100: #F7F4ED;
-  --ivory-200: #EFEAE0;
+  /* CONEXIUM GOLD (#C79A3B) — Assinatura visual e destaques */
+  --conexium-gold: #C79A3B;
+  --gold-700: #A87D26;
+  --gold-600: #B88B2F;
+  --gold-500: #C79A3B;
+  --gold-400: #D8AD4F;
+  --gold-300: #E6BF6B;
 
-  /* Neutral text */
-  --ink-950: #101816;
-  --ink-900: #18211F;
-  --ink-700: #48524F;
-  --ink-500: #747C78;
+  /* IVORY (#F7F4EC) — Fundos claros, cards e blocos editoriais */
+  --conexium-ivory: #F7F4EC;
+  --ivory-50: #FAF8F2;
+  --ivory-100: #F7F4EC;
+  --ivory-200: #ECE7DB;
+  --ivory-300: #DDD5C3;
+
+  /* GRAPHITE (#18211F) — Textos no claro, superfícies neutras */
+  --conexium-graphite: #18211F;
+  --graphite-950: #101715;
+  --graphite-900: #18211F;
+  --graphite-800: #26312E;
+  --graphite-700: #3B4744;
+
+  /* TECHNICAL GRAY (#A7ACA8) — Legendas, linhas técnicas, divisões */
+  --conexium-gray: #A7ACA8;
+  --technical-gray: #A7ACA8;
+  --gray-500: #A7ACA8;
+  --gray-400: #BFC4C0;
+  --gray-300: #D5DAD6;
 
   --white: #FFFFFF;
 
-  --border-dark: rgba(255, 255, 255, 0.10);
-  --border-light: rgba(18, 34, 30, 0.10);
+  /* Bordas calibradas */
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --border-dark-hover: rgba(199, 154, 59, 0.35);
+  --border-light: rgba(24, 33, 31, 0.10);
+  --border-gold: rgba(199, 154, 59, 0.40);
 
-  /* Spacing & Layout */
+  /* Espaçamentos, Dimensões e Layout */
   --container: 1320px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 
-  --shadow-sm: 0 8px 24px rgba(0, 20, 17, 0.06);
-  --shadow-md: 0 20px 50px rgba(0, 20, 17, 0.10);
-  --transition: 180ms ease;
+  --shadow-sm: 0 4px 16px rgba(0, 31, 26, 0.06);
+  --shadow-md: 0 12px 36px rgba(0, 31, 26, 0.12);
+  --shadow-lg: 0 24px 60px rgba(0, 31, 26, 0.18);
+
+  --transition: 240ms cubic-bezier(0.16, 1, 0.3, 1);
 }

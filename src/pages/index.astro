@@ -19,56 +19,59 @@ const homeJsonLd = {
   jsonLd={homeJsonLd}
 >
   <!-- =========================================================================
-       HERO SECTION — CINEMATOGRÁFICO, INTEGRADO E FIDELIDADE 1:1 AO MOCKUP
-       min-height: 700px a 730px; 45% texto / 55% imagem integrada com gradiente suave
+       1. HERO SECTION — CINEMATOGRÁFICO, RIGOROSO, AUTORIDADE TÉCNICA
+       Conexium Green (#001F1A) + Conexium Gold (#C79A3B) + Grid técnico
        ========================================================================= -->
-  <section class="relative isolate overflow-hidden bg-[#001916] text-white min-h-[700px] lg:min-h-[720px] flex items-center">
-    <!-- Imagem fotográfica de fundo ocupando o lado direito e integrada via gradiente -->
+  <section class="relative isolate overflow-hidden bg-[#001F1A] text-white min-h-[700px] lg:min-h-[730px] flex items-center">
+    <!-- Fotografia documental integrada ao fundo à direita com gradiente de fusão seletiva -->
     <div class="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden pointer-events-none">
       <img
         src={withBase("/assets/conexium/hero-subestacao-engenheiro.png")}
-        alt="Engenheiro eletricista analisando diagrama em notebook diante de subestação ao pôr do sol"
-        class="h-full w-full object-cover object-[70%_center] lg:object-[65%_center]"
+        alt="Engenheiro eletricista avaliando diagrama técnico e especificações diante de subestação de energia"
+        class="h-full w-full object-cover object-[72%_center] lg:object-[68%_center]"
         loading="eager"
         fetchpriority="high"
         decoding="async"
         width="1920"
         height="1080"
       />
-      <!-- Gradiente da esquerda refinado para fusão cinematográfica perfeita -->
+      <!-- Fusão suave cinematográfica da esquerda para a direita (sem corte brusco) -->
       <div
-        class="absolute inset-0 bg-gradient-to-r from-[#001916] via-[#001916]/90 to-transparent lg:via-[#001916]/40 hidden md:block"
-        style="background: linear-gradient(90deg, #001916 0%, rgba(0,25,22,0.98) 22%, rgba(0,25,22,0.82) 42%, rgba(0,25,22,0.15) 67%, rgba(0,25,22,0) 100%);"
+        class="absolute inset-0 hidden md:block"
+        style="background: linear-gradient(90deg, #001F1A 0%, rgba(0,31,26,0.98) 24%, rgba(0,31,26,0.85) 44%, rgba(0,31,26,0.25) 72%, rgba(0,31,26,0) 100%);"
         aria-hidden="true"
       ></div>
-      <!-- Gradiente inferior e superior para mobile -->
-      <div class="absolute inset-0 bg-gradient-to-t from-[#001916] via-[#001916]/70 to-[#001916]/40 md:hidden" aria-hidden="true"></div>
+      <!-- Gradiente vertical para dispositivos móveis -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#001F1A] via-[#001F1A]/80 to-[#001F1A]/40 md:hidden" aria-hidden="true"></div>
     </div>
 
-    <!-- Technical blueprint grid texture (extremamente sutil) -->
-    <div class="absolute inset-0 tech-grid-pattern pointer-events-none opacity-40" aria-hidden="true"></div>
+    <!-- Marca d'água técnica sutil no fundo do Hero (grid e coordenadas de engenharia) -->
+    <div class="absolute inset-0 tech-grid-pattern pointer-events-none opacity-60" aria-hidden="true"></div>
 
     <div class="cx-shell relative z-10 w-full py-16 lg:py-20">
-      <div class="max-w-[620px] lg:max-w-[48%]">
-        <!-- Eyebrow dourado -->
-        <p class="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#DEA945] uppercase">
-          ENGENHARIA. REGULAÇÃO. EVIDÊNCIA.
-        </p>
+      <div class="max-w-[640px] lg:max-w-[50%]">
+        <!-- Eyebrow técnico dourado -->
+        <div class="flex items-center gap-2.5 mb-5">
+          <span class="inline-block h-[1px] w-5 bg-[#C79A3B]" aria-hidden="true"></span>
+          <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] text-[#C79A3B] uppercase font-sans-tech">
+            ENGENHARIA • REGULAÇÃO • EVIDÊNCIA
+          </p>
+        </div>
 
-        <!-- Headline DM Serif Display com quebra e proporção do mockup -->
-        <h1 class="font-serif-display mt-5 text-[clamp(42px,4.5vw,72px)] leading-[1.02] tracking-[-0.03em] text-[#FFFFFF]">
+        <!-- Headline Source Serif 4 com autoridade de consultoria técnica -->
+        <h1 class="font-serif-display text-[clamp(40px,4.5vw,68px)] leading-[1.03] tracking-[-0.025em] text-[#FFFFFF]">
           Engenharia elétrica,<br />
           consultoria técnico-regulatória<br />
           e evidência técnica para<br />
-          <span class="text-[#DEA945]">decisões seguras.</span>
+          <span class="text-[#C79A3B]">decisões seguras.</span>
         </h1>
 
-        <!-- Descrição -->
-        <p class="mt-6 max-w-[560px] text-[16px] sm:text-[17px] leading-[1.65] text-[#F7F4ED]/85">
+        <!-- Descrição técnica com IBM Plex Sans -->
+        <p class="mt-6 max-w-[540px] text-[15.5px] sm:text-[16.5px] leading-[1.65] text-[#F7F4EC]/85 font-sans-tech">
           Soluções técnicas e estratégicas em engenharia, regulação e análise técnica com base em evidências, para apoiar projetos, operações e decisões no setor elétrico.
         </p>
 
-        <!-- CTAs com presença e proporções do mockup (height 52px) -->
+        <!-- CTAs: Primário Dourado + Secundário Outline Sofisticado -->
         <div class="mt-9 flex flex-wrap items-center gap-[14px]">
           <a href={withBase("/contato/")} class="btn-gold" data-track="hero-cta-primary">
             Solicitar diagnóstico <span class="ml-2" aria-hidden="true">→</span>
@@ -82,53 +85,53 @@ const homeJsonLd = {
   </section>
 
   <!-- =========================================================================
-       TRUST BAR ABAIXO DO HERO (Altura ~90px, Fundo #00211D)
-       4 benefícios igualmente distribuídos, ícones 30-32px, divisores discretos
+       2. BARRA DE CREDIBILIDADE (Fundo Conexium Green #042923)
+       Ícones lineares técnicos, Conexium Gold, tipografia precisa
        ========================================================================= -->
-  <section class="border-y border-white/[0.08] bg-[#00211D] min-h-[90px] flex items-center py-5 text-white" aria-label="Diferenciais técnicos">
-    <div class="cx-shell w-full">
+  <section class="border-y border-white/[0.08] bg-[#042923] min-h-[92px] flex items-center py-5 text-white" aria-label="Diferenciais técnicos">
+    <div class="cx-shell w-full font-sans-tech">
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-white/[0.08]">
-        <!-- 1: Metodologia rastreável -->
+        <!-- 1: Conformidade normativa -->
         <div class="flex items-center gap-3.5 px-2">
-          <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-[#DEA945]" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-[#C79A3B]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
           </div>
           <div>
-            <h2 class="text-[14px] sm:text-[15px] font-semibold text-white leading-tight">Metodologia rastreável</h2>
-            <p class="mt-0.5 text-[12px] sm:text-[13px] text-[#F7F4ED]/70">Análises com base normativa</p>
+            <h2 class="text-[14px] sm:text-[14.5px] font-semibold text-white leading-tight">Conformidade normativa</h2>
+            <p class="mt-0.5 text-[12px] sm:text-[12.5px] text-[#A7ACA8]">ANEEL, PRODIST, ABNT e normas aplicáveis</p>
           </div>
         </div>
 
-        <!-- 2: Responsabilidade técnica -->
+        <!-- 2: Metodologia rastreável -->
         <div class="flex items-center gap-3.5 px-2 lg:pl-7">
-          <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-[#DEA945]" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-[#C79A3B]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
           </div>
           <div>
-            <h2 class="text-[14px] sm:text-[15px] font-semibold text-white leading-tight">Responsabilidade técnica</h2>
-            <p class="mt-0.5 text-[12px] sm:text-[13px] text-[#F7F4ED]/70">ART conforme o escopo contratado</p>
+            <h2 class="text-[14px] sm:text-[14.5px] font-semibold text-white leading-tight">Metodologia rastreável</h2>
+            <p class="mt-0.5 text-[12px] sm:text-[12.5px] text-[#A7ACA8]">Análises fundamentadas e documentadas</p>
           </div>
         </div>
 
-        <!-- 3: Atuação técnica especializada -->
+        <!-- 3: Responsabilidade técnica -->
         <div class="flex items-center gap-3.5 px-2 lg:pl-7">
-          <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-[#DEA945]" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-[#C79A3B]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
           </div>
           <div>
-            <h2 class="text-[14px] sm:text-[15px] font-semibold text-white leading-tight">Atuação técnica especializada</h2>
-            <p class="mt-0.5 text-[12px] sm:text-[13px] text-[#F7F4ED]/70">Engenharia, regulação e evidência</p>
+            <h2 class="text-[14px] sm:text-[14.5px] font-semibold text-white leading-tight">Responsabilidade técnica</h2>
+            <p class="mt-0.5 text-[12px] sm:text-[12.5px] text-[#A7ACA8]">ART conforme o escopo contratado</p>
           </div>
         </div>
 
-        <!-- 4: Conformidade normativa -->
+        <!-- 4: Atuação especializada -->
         <div class="flex items-center gap-3.5 px-2 lg:pl-7">
-          <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-[#DEA945]" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <div class="flex h-[32px] w-[32px] shrink-0 items-center justify-center text-[#C79A3B]" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
           </div>
           <div>
-            <h2 class="text-[14px] sm:text-[15px] font-semibold text-white leading-tight">Conformidade normativa</h2>
-            <p class="mt-0.5 text-[12px] sm:text-[13px] text-[#F7F4ED]/70">ANEEL, PRODIST, ABNT e normas aplicáveis</p>
+            <h2 class="text-[14px] sm:text-[14.5px] font-semibold text-white leading-tight">Atuação especializada</h2>
+            <p class="mt-0.5 text-[12px] sm:text-[12.5px] text-[#A7ACA8]">Engenharia, regulação e evidência</p>
           </div>
         </div>
       </div>
@@ -136,27 +139,47 @@ const homeJsonLd = {
   </section>
 
   <!-- =========================================================================
-       SECAO SOBRE A CONEXIUM (Grid 42% / 58%, Fundo Sofisticado #F7F4ED)
-       Altura da foto 390-410px, composição escura com linha dourada
+       3. SOBRE A CONEXIUM (Fundo Ivory #F7F4EC, Bloco Editorial, Grid Técnico)
+       Composição: Texto Institucional + Fotografia Documental com Cartão de Destaque
        ========================================================================= -->
-  <section class="bg-[#F7F4ED] py-[100px] lg:py-[110px] text-[#18211F]" aria-labelledby="sobre-title">
-    <div class="cx-shell">
-      <div class="grid items-center gap-12 lg:grid-cols-[42%_58%]">
-        <!-- Coluna Esquerda: Texto institucional e botão -->
-        <div>
-          <p class="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#CC9734] uppercase">
-            SOBRE A CONEXIUM
-          </p>
+  <section class="relative bg-[#F7F4EC] py-[100px] lg:py-[115px] text-[#18211F]" aria-labelledby="sobre-title">
+    <!-- Marca d'água técnica de nós/linhas no fundo claro (opacidade 4%) -->
+    <div class="pointer-events-none absolute left-6 top-10 opacity-[0.04]" aria-hidden="true">
+      <svg width="400" height="300" viewBox="0 0 400 300" fill="none" stroke="#18211F">
+        <circle cx="40" cy="50" r="4" fill="#C79A3B" stroke="none" />
+        <circle cx="200" cy="50" r="4" fill="#18211F" />
+        <circle cx="360" cy="50" r="4" fill="#18211F" />
+        <circle cx="200" cy="180" r="4" fill="#C79A3B" stroke="none" />
+        <line x1="40" y1="50" x2="360" y2="50" stroke-width="1" stroke-dasharray="4 4" />
+        <line x1="200" y1="50" x2="200" y2="180" stroke-width="1" />
+        <line x1="200" y1="180" x2="320" y2="240" stroke-width="1" stroke-dasharray="2 2" />
+        <circle cx="320" cy="240" r="3" fill="#18211F" />
+      </svg>
+    </div>
 
-          <h2 id="sobre-title" class="font-serif-display mt-4 text-[clamp(34px,3.2vw,50px)] leading-[1.08] text-[#001916]">
+    <div class="cx-shell relative z-10">
+      <div class="grid items-center gap-12 lg:grid-cols-[44%_56%]">
+        <!-- Coluna Esquerda: Texto editorial com Source Serif 4 e IBM Plex Sans -->
+        <div>
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+            <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] text-[#C79A3B] uppercase font-sans-tech">
+              SOBRE A CONEXIUM
+            </p>
+          </div>
+
+          <h2 id="sobre-title" class="font-serif-display text-[clamp(32px,3.2vw,48px)] leading-[1.08] text-[#001F1A]">
             Engenharia, regulação<br />
             e evidência a serviço<br />
             de decisões técnicas.
           </h2>
 
-          <div class="mt-6 space-y-4 text-[16px] sm:text-[17px] leading-[1.7] text-[#48524F]">
+          <div class="mt-6 space-y-4 text-[15.5px] sm:text-[16.5px] leading-[1.7] text-[#18211F]/80 font-sans-tech">
             <p>
-              A Conexium Engenharia é uma consultoria especializada em soluções técnicas para o setor elétrico, unindo sólida experiência em engenharia, profundo conhecimento regulatório e rigor técnico na análise de evidências.
+              A Conexium Engenharia é uma consultoria técnica de alto padrão para o setor elétrico, unindo sólida prática em engenharia elétrica, profundo domínio regulatório da ANEEL e rigor técnico na análise documental e pericial.
+            </p>
+            <p class="text-[14.5px] text-[#A7ACA8]/90">
+              Atuamos na estruturação de evidências verificáveis, projetos elétricos executivos e pareceres técnicos fundamentados para respaldar decisões estratégicas e litígios complexos.
             </p>
           </div>
 
@@ -167,25 +190,25 @@ const homeJsonLd = {
           </div>
         </div>
 
-        <!-- Coluna Direita: Imagem de projeto com overlay escuro e linha dourada (altura 400px) -->
-        <div class="relative overflow-hidden rounded-[10px] shadow-[0_16px_40px_rgba(0,25,22,0.10)] border border-[rgba(18,34,30,0.08)]">
-          <div class="relative h-[360px] sm:h-[400px] w-full bg-[#001916]">
+        <!-- Coluna Direita: Foto de análise documental com cartão institucional integrado -->
+        <div class="relative overflow-hidden rounded-[8px] shadow-[0_16px_40px_rgba(0,31,26,0.12)] border border-[#18211F]/10">
+          <div class="relative h-[360px] sm:h-[400px] w-full bg-[#001F1A]">
             <img
               src={withBase("/assets/conexium/analise-projeto-mesa.png")}
-              alt="Engenheiro examinando desenho elétrico sobre mesa com capacete de proteção"
+              alt="Engenheiro analisando plantas elétricas e memórias de cálculo sobre mesa técnica"
               class="h-full w-full object-cover object-center"
               loading="lazy"
               decoding="async"
               width="900"
               height="600"
             />
-            <!-- Composição lateral escura cobrindo ~35% da foto com linha dourada vertical -->
-            <div class="absolute inset-y-0 right-0 flex w-[40%] sm:w-[36%] flex-col justify-center bg-[#00211D]/95 p-6 sm:p-8 text-white backdrop-blur-sm">
-              <div class="mb-4">
-                <img src={withBase("/brand/conexium-symbol.svg")} alt="" class="h-8 w-8" width="32" height="32" />
+            <!-- Cartão lateral escuro cobrindo ~38% da foto com símbolo oficial e linha dourada -->
+            <div class="absolute inset-y-0 right-0 flex w-[44%] sm:w-[38%] flex-col justify-center bg-[#001F1A]/95 p-6 sm:p-7 text-white backdrop-blur-sm border-l border-white/[0.08]">
+              <div class="mb-5">
+                <img src={withBase("/brand/conexium-symbol.png")} alt="" class="h-9 w-9 object-contain" width="36" height="36" />
               </div>
-              <div class="border-l-2 border-[#DEA945] pl-4">
-                <p class="text-[12px] sm:text-[13px] font-bold tracking-[0.16em] text-white leading-[1.7] uppercase">
+              <div class="border-l-2 border-[#C79A3B] pl-4">
+                <p class="font-sans-tech text-[11.5px] sm:text-[12.5px] font-bold tracking-[0.16em] text-white leading-[1.7] uppercase">
                   BASE TÉCNICA<br />
                   PARA PROJETOS,<br />
                   DISPUTAS E<br />
@@ -201,47 +224,54 @@ const homeJsonLd = {
   </section>
 
   <!-- =========================================================================
-       SECAO PRINCIPAL DE SERVIÇOS (EXATAMENTE TRÊS CARDS, Fundo #001F1B)
-       Padding 105px 0 115px; Cards com min-height 510px, imagem 200px, 3 colunas
+       4. SERVIÇOS — OS TRÊS GRANDES PILARES EXCLUSIVOS (Fundo #001F1A)
+       Cards editoriais com números 01, 02, 03, imagem, lista resumida e CTA
        ========================================================================= -->
-  <section class="bg-[#001F1B] pt-[105px] pb-[115px] text-white" aria-labelledby="servicos-title">
-    <div class="cx-shell">
+  <section class="relative bg-[#001F1A] pt-[105px] pb-[115px] text-white" aria-labelledby="servicos-title">
+    <div class="cx-shell relative z-10">
       <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div>
-          <p class="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#DEA945] uppercase">
-            NOSSOS SERVIÇOS
-          </p>
-          <h2 id="servicos-title" class="font-serif-display mt-3 text-[clamp(32px,3vw,48px)] leading-[1.05] text-white">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+            <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] text-[#C79A3B] uppercase font-sans-tech">
+              NOSSOS SERVIÇOS
+            </p>
+          </div>
+          <h2 id="servicos-title" class="font-serif-display text-[clamp(32px,3vw,48px)] leading-[1.05] text-white">
             Soluções técnicas para o setor elétrico
           </h2>
         </div>
-        <p class="max-w-[420px] text-[15px] leading-relaxed text-[#747C78]">
-          Projetos, análises e pareceres com rigor técnico, visão regulatória e foco em resultados.
+        <p class="max-w-[420px] text-[15px] leading-relaxed text-[#A7ACA8] font-sans-tech">
+          Projetos, consultoria regulatória e perícias com rigor técnico, fundamentação documental e decisões baseadas em evidências.
         </p>
       </div>
 
-      <!-- Grid com os exatos 3 Cards -->
-      <div class="mt-12 grid grid-cols-1 gap-[22px] md:grid-cols-2 lg:grid-cols-3">
+      <!-- Grid com os Três Pilares Oficiais -->
+      <div class="mt-12 grid grid-cols-1 gap-[24px] md:grid-cols-2 lg:grid-cols-3">
         {servicePages.map((service, index) => (
-          <article class="cx-service-card flex flex-col">
-            <!-- Imagem do topo do card (200px de altura) -->
-            <div class="relative h-[200px] w-full overflow-hidden bg-[#001916]">
+          <article class="cx-service-card flex flex-col min-h-[510px]">
+            <!-- Imagem do card com overlay técnico -->
+            <div class="relative h-[200px] w-full overflow-hidden bg-[#042923]">
               <img
                 src={withBase(service.image)}
                 alt={service.title}
-                class="h-full w-full object-cover transition duration-300 hover:scale-[1.02]"
+                class="h-full w-full object-cover"
                 loading="lazy"
                 decoding="async"
                 width="480"
                 height="240"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#00211D] via-transparent to-transparent opacity-85" aria-hidden="true"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#001F1A] via-transparent to-transparent opacity-90" aria-hidden="true"></div>
+              <!-- Número oficial do pilar no canto da foto (01, 02, 03) -->
+              <span class="absolute top-4 right-4 rounded border border-[#C79A3B]/40 bg-[#001F1A]/80 px-2.5 py-1 text-[12px] font-bold tracking-wider text-[#C79A3B] backdrop-blur-sm font-sans-tech">
+                0{index + 1}
+              </span>
             </div>
 
-            <!-- Conteúdo interno com padding 28px -->
-            <div class="flex flex-1 flex-col p-[28px]">
-              <!-- Ícone linear dourado -->
-              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border border-[#DEA945]/30 bg-[#DEA945]/10 text-[#DEA945]" aria-hidden="true">
+            <!-- Conteúdo interno editorial com IBM Plex Sans -->
+            <div class="flex flex-1 flex-col p-[28px] font-sans-tech">
+              <!-- Ícone linear técnico -->
+              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded border border-[#C79A3B]/30 bg-[#C79A3B]/10 text-[#C79A3B]" aria-hidden="true">
                 {index === 0 && (
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 )}
@@ -253,31 +283,31 @@ const homeJsonLd = {
                 )}
               </div>
 
-              <!-- Título do card (26px) -->
-              <h3 class="text-[25px] sm:text-[26px] font-bold text-white leading-tight">
+              <!-- Título do serviço com Source Serif 4 para presença de consultoria -->
+              <h3 class="font-serif-display text-[23px] sm:text-[24px] font-bold text-white leading-tight">
                 {service.title}
               </h3>
 
-              <!-- Descrição (16px) -->
-              <p class="mt-3.5 text-[15px] sm:text-[16px] leading-[1.6] text-[#F7F4ED]/80">
+              <!-- Descrição -->
+              <p class="mt-3 text-[14.5px] leading-[1.6] text-[#F7F4EC]/80">
                 {service.cardDescription}
               </p>
 
-              <!-- Bullets com check dourado (14.5px) -->
-              <ul class="mt-6 space-y-3 text-[14px] sm:text-[14.5px] text-[#ECEDE9]/90">
+              <!-- Bullets com marcador dourado preciso -->
+              <ul class="mt-5 space-y-2.5 text-[13.5px] text-[#A7ACA8]">
                 {service.cardBullets.map((bullet) => (
-                  <li class="flex items-center gap-3">
-                    <svg class="h-4 w-4 shrink-0 text-[#DEA945]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+                  <li class="flex items-center gap-2.5">
+                    <span class="inline-block h-1.5 w-1.5 rounded-full bg-[#C79A3B]" aria-hidden="true"></span>
                     <span>{bullet}</span>
                   </li>
                 ))}
               </ul>
 
-              <!-- CTA Saiba mais dourado -->
-              <div class="mt-auto pt-8">
+              <!-- CTA Saiba mais -->
+              <div class="mt-auto pt-7">
                 <a
                   href={withBase(`/servicos/${service.slug}/`)}
-                  class="inline-flex items-center text-[15px] font-semibold text-[#DEA945] transition hover:text-[#EDC46B]"
+                  class="inline-flex items-center text-[14.5px] font-semibold text-[#C79A3B] transition-colors hover:text-[#D8AD4F]"
                 >
                   Saiba mais <span class="ml-1.5" aria-hidden="true">→</span>
                 </a>
@@ -290,75 +320,77 @@ const homeJsonLd = {
   </section>
 
   <!-- =========================================================================
-       SECAO "QUANDO PODEMOS AJUDAR" (Padding 90px 0, Fundo #F7F4ED)
-       Grid: 30% título / 70% quatro cards com min-height 170px e ícones robustos
+       5. QUANDO PODEMOS AJUDAR — MATRIZ DE APLICAÇÃO TÉCNICA (Fundo #F7F4EC)
+       Categorias com indicadores numéricos 01, 02, 03, 04 em dourado e respiro
        ========================================================================= -->
-  <section class="bg-[#F7F4ED] py-[90px] text-[#18211F]" aria-labelledby="quando-ajudar-title">
+  <section class="bg-[#F7F4EC] py-[95px] text-[#18211F]" aria-labelledby="quando-ajudar-title">
     <div class="cx-shell">
-      <div class="grid items-start gap-10 lg:grid-cols-[30%_70%]">
+      <div class="grid items-start gap-12 lg:grid-cols-[32%_68%]">
         <div>
-          <h2 id="quando-ajudar-title" class="font-serif-display text-[clamp(30px,2.8vw,42px)] leading-[1.1] text-[#001916]">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+            <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] text-[#C79A3B] uppercase font-sans-tech">
+              APLICAÇÕES PRÁTICAS
+            </p>
+          </div>
+          <h2 id="quando-ajudar-title" class="font-serif-display text-[clamp(30px,2.8vw,42px)] leading-[1.1] text-[#001F1A]">
             Quando podemos ajudar
           </h2>
-          <p class="mt-4 text-[15px] leading-relaxed text-[#48524F]">
-            Apoiamos nossos clientes em diferentes momentos, com soluções técnicas objetivas e fundamentadas.
+          <p class="mt-4 text-[15px] leading-relaxed text-[#18211F]/75 font-sans-tech">
+            Apoiamos empreendimentos, integradores, investidores e equipes jurídicas em momentos críticos de decisão técnica e regulatória.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-[10px] border border-[rgba(0,30,25,0.08)] bg-white/75 p-6 shadow-sm min-h-[170px] flex flex-col justify-between">
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 font-sans-tech">
+          <!-- Item 01 -->
+          <div class="rounded-[8px] border border-[#18211F]/10 bg-white/80 p-6 shadow-sm min-h-[180px] flex flex-col justify-between transition-all hover:border-[#C79A3B]/50 hover:shadow-md">
             <div>
-              <div class="mb-3 text-[#CC9734]" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
-              </div>
-              <h3 class="text-[13px] font-bold uppercase tracking-wider text-[#001916]">
+              <span class="text-[14px] font-bold text-[#C79A3B] tracking-wider">01</span>
+              <h3 class="mt-2 text-[14px] font-bold text-[#001F1A] uppercase tracking-wide">
                 Desenvolvimento de projetos
               </h3>
             </div>
-            <p class="mt-2 text-[13px] leading-relaxed text-[#48524F]">
-              Da concepção ao detalhamento, com foco em segurança e conformidade.
+            <p class="mt-3 text-[13px] leading-relaxed text-[#18211F]/70">
+              Da concepção ao detalhamento executivo, com foco em segurança, viabilidade e conformidade.
             </p>
           </div>
 
-          <div class="rounded-[10px] border border-[rgba(0,30,25,0.08)] bg-white/75 p-6 shadow-sm min-h-[170px] flex flex-col justify-between">
+          <!-- Item 02 -->
+          <div class="rounded-[8px] border border-[#18211F]/10 bg-white/80 p-6 shadow-sm min-h-[180px] flex flex-col justify-between transition-all hover:border-[#C79A3B]/50 hover:shadow-md">
             <div>
-              <div class="mb-3 text-[#CC9734]" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-              </div>
-              <h3 class="text-[13px] font-bold uppercase tracking-wider text-[#001916]">
+              <span class="text-[14px] font-bold text-[#C79A3B] tracking-wider">02</span>
+              <h3 class="mt-2 text-[14px] font-bold text-[#001F1A] uppercase tracking-wide">
                 Processos regulatórios
               </h3>
             </div>
-            <p class="mt-2 text-[13px] leading-relaxed text-[#48524F]">
-              Suporte técnico em pleitos, fiscalizações e interações com a ANEEL e agentes do setor.
+            <p class="mt-3 text-[13px] leading-relaxed text-[#18211F]/70">
+              Suporte técnico em contestações de pareceres, fiscalizações e tratativas perante a ANEEL e distribuidoras.
             </p>
           </div>
 
-          <div class="rounded-[10px] border border-[rgba(0,30,25,0.08)] bg-white/75 p-6 shadow-sm min-h-[170px] flex flex-col justify-between">
+          <!-- Item 03 -->
+          <div class="rounded-[8px] border border-[#18211F]/10 bg-white/80 p-6 shadow-sm min-h-[180px] flex flex-col justify-between transition-all hover:border-[#C79A3B]/50 hover:shadow-md">
             <div>
-              <div class="mb-3 text-[#CC9734]" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M7 21h10"></path><path d="M12 3v18"></path><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"></path></svg>
-              </div>
-              <h3 class="text-[13px] font-bold uppercase tracking-wider text-[#001916]">
+              <span class="text-[14px] font-bold text-[#C79A3B] tracking-wider">03</span>
+              <h3 class="mt-2 text-[14px] font-bold text-[#001F1A] uppercase tracking-wide">
                 Disputas e litígios
               </h3>
             </div>
-            <p class="mt-2 text-[13px] leading-relaxed text-[#48524F]">
-              Elaboração de laudos, pareceres e respostas técnicas para demandas administrativas e judiciais.
+            <p class="mt-3 text-[13px] leading-relaxed text-[#18211F]/70">
+              Formulação de quesitos, laudos e manifestações técnicas consistentes para demandas administrativas e judiciais.
             </p>
           </div>
 
-          <div class="rounded-[10px] border border-[rgba(0,30,25,0.08)] bg-white/75 p-6 shadow-sm min-h-[170px] flex flex-col justify-between">
+          <!-- Item 04 -->
+          <div class="rounded-[8px] border border-[#18211F]/10 bg-white/80 p-6 shadow-sm min-h-[180px] flex flex-col justify-between transition-all hover:border-[#C79A3B]/50 hover:shadow-md">
             <div>
-              <div class="mb-3 text-[#CC9734]" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-              </div>
-              <h3 class="text-[13px] font-bold uppercase tracking-wider text-[#001916]">
+              <span class="text-[14px] font-bold text-[#C79A3B] tracking-wider">04</span>
+              <h3 class="mt-2 text-[14px] font-bold text-[#001F1A] uppercase tracking-wide">
                 Tomada de decisão
               </h3>
             </div>
-            <p class="mt-2 text-[13px] leading-relaxed text-[#48524F]">
-              Análises técnicas independentes para suporte a decisões estratégicas e de investimento.
+            <p class="mt-3 text-[13px] leading-relaxed text-[#18211F]/70">
+              Auditorias independentes para subsidiar investimentos de capital e validação de engenharia.
             </p>
           </div>
         </div>
@@ -367,41 +399,47 @@ const homeJsonLd = {
   </section>
 
   <!-- =========================================================================
-       METODOLOGIA (Padding 95px 0, Fundo #00211D)
-       Timeline horizontal com círculos de 40px, borda #DEA945 e linha #B98226
+       6. METODOLOGIA — DIAGRAMA DE NÓS DE ENGENHARIA (Fundo #042923)
+       01 Briefing ─── 02 Análise técnica ─── 03 Evidência ─── 04 Parecer
        ========================================================================= -->
-  <section class="border-y border-white/[0.08] bg-[#00211D] py-[95px] text-white" aria-labelledby="metodologia-title">
+  <section class="border-y border-white/[0.08] bg-[#042923] py-[100px] text-white" aria-labelledby="metodologia-title">
     <div class="cx-shell">
       <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+            <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] text-[#C79A3B] uppercase font-sans-tech">
+              RASTREABILIDADE E PROCESSO
+            </p>
+          </div>
           <h2 id="metodologia-title" class="font-serif-display text-[clamp(32px,3vw,48px)] text-white">
             Nossa metodologia
           </h2>
-          <p class="mt-2 text-[15px] text-[#747C78]">
-            Da demanda à solução, com rastreabilidade, rigor técnico e foco em resultados.
+          <p class="mt-2 text-[15px] text-[#A7ACA8] font-sans-tech">
+            Da demanda à solução: rigor documental, cadeia de evidências e conclusões objetivas.
           </p>
         </div>
-        <a href={withBase("/a-conexium/")} class="btn-gold self-start md:self-auto">
-          Conheça nossa metodologia →
+        <a href={withBase("/a-conexium/")} class="btn-gold self-start md:self-auto font-sans-tech">
+          Conheça o processo técnico →
         </a>
       </div>
 
-      <!-- Timeline Desktop horizontal / Mobile vertical -->
-      <div class="relative mt-16">
-        <!-- Linha horizontal dourada conectando os passos no centro dos círculos (top 20px) -->
-        <div class="absolute left-0 top-[20px] hidden h-[2px] w-full bg-[#B98226]/40 md:block" aria-hidden="true"></div>
+      <!-- Diagrama de Conexão entre Etapas -->
+      <div class="relative mt-16 font-sans-tech">
+        <!-- Linha horizontal conectando os nós centrais no desktop (top 20px) -->
+        <div class="absolute left-6 right-6 top-[20px] hidden h-[1px] bg-[#C79A3B]/30 md:block" aria-hidden="true"></div>
 
         <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
           {methodologySteps.map((step) => (
             <div class="relative flex flex-col items-start">
-              <!-- Círculo de 40px com o número do passo -->
-              <div class="z-10 flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#DEA945] bg-[#00211D] text-[14px] font-bold text-[#DEA945] shadow-sm">
+              <!-- Nó de conexão de 40px com número oficial -->
+              <div class="z-10 flex h-[40px] w-[40px] items-center justify-center rounded-full border border-[#C79A3B] bg-[#001F1A] text-[13.5px] font-bold text-[#C79A3B] shadow-sm">
                 {step.step}
               </div>
-              <h3 class="mt-5 text-[18px] font-bold text-white">
+              <h3 class="mt-5 text-[17px] font-bold text-white">
                 {step.title}
               </h3>
-              <p class="mt-2 text-[13px] leading-relaxed text-[#747C78]">
+              <p class="mt-2 text-[13px] leading-relaxed text-[#A7ACA8]">
                 {step.description}
               </p>
             </div>
@@ -412,36 +450,39 @@ const homeJsonLd = {
   </section>
 
   <!-- =========================================================================
-       CTA FINAL (Altura ~300px, Fundo Linhas de Transmissão ao Pôr do Sol)
-       Overlay linear suave, Headline 48-54px, CTAs 52px
+       7. CTA FINAL — FECHAMENTO INSTITUCIONAL DE ALTO IMPACTO
+       Antes de decidir, valide a engenharia.
        ========================================================================= -->
-  <section class="relative isolate overflow-hidden bg-[#001916] min-h-[300px] py-[80px] lg:py-[90px] text-white flex items-center">
+  <section class="relative isolate overflow-hidden bg-[#001F1A] min-h-[310px] py-[85px] lg:py-[95px] text-white flex items-center">
     <img
       src={withBase("/assets/conexium/cta-linhas-transmissao.png")}
-      alt="Infraestrutura e linhas de transmissão de energia elétrica ao pôr do sol"
+      alt="Linhas de transmissão do sistema elétrico nacional ao pôr do sol"
       class="absolute inset-0 -z-10 h-full w-full object-cover object-[center_55%]"
       loading="lazy"
       decoding="async"
       width="1920"
       height="800"
     />
-    <!-- Overlay com fusão do verde escuro do mockup -->
+    <!-- Overlay com Conexium Green escurecido (#001F1A) e fusão seletiva -->
     <div
       class="absolute inset-0 -z-10"
-      style="background: linear-gradient(90deg, rgba(0,25,22,0.94) 0%, rgba(0,25,22,0.76) 55%, rgba(0,25,22,0.30) 100%);"
+      style="background: linear-gradient(90deg, rgba(0,31,26,0.96) 0%, rgba(0,31,26,0.82) 55%, rgba(0,31,26,0.38) 100%);"
       aria-hidden="true"
     ></div>
 
     <div class="cx-shell relative z-10 w-full">
       <div class="flex flex-col justify-between gap-8 md:flex-row md:items-center">
         <div>
-          <p class="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] text-[#DEA945] uppercase">
-            DECISÕES MELHORES COM BASE TÉCNICA.
-          </p>
-          <h2 class="font-serif-display mt-3 text-[clamp(34px,3.5vw,52px)] text-white leading-tight">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+            <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] text-[#C79A3B] uppercase font-sans-tech">
+              DECISÕES MELHORES COM BASE TÉCNICA
+            </p>
+          </div>
+          <h2 class="font-serif-display text-[clamp(34px,3.5vw,52px)] text-white leading-tight">
             Antes de decidir, valide a engenharia.
           </h2>
-          <p class="mt-3 max-w-[580px] text-[15px] text-[#F7F4ED]/85">
+          <p class="mt-3 max-w-[580px] text-[15px] text-[#F7F4EC]/85 font-sans-tech">
             Fale com um especialista da Conexium e tenha uma avaliação técnica da sua demanda.
           </p>
         </div>

@@ -11,33 +11,33 @@ function isActive(href: string) {
 }
 ---
 
-<header class="sticky inset-x-0 top-0 z-50 h-[80px] border-b border-white/[0.06] bg-[#001916]/85 text-white backdrop-blur-[12px] transition-colors" data-site-header>
+<header class="sticky inset-x-0 top-0 z-50 h-[76px] border-b border-white/[0.06] bg-[#001F1A]/90 text-white backdrop-blur-[14px] transition-all duration-300" data-site-header>
   <div class="cx-shell flex h-full items-center justify-between">
-    <!-- Brand Logo: 160px de largura com presença nítida -->
+    <!-- Brand Logo: Assinatura Oficial Conexium Engenharia -->
     <a href={withBase("/")} class="flex items-center" aria-label={`${site.name} - Página inicial`}>
-      <img src={withBase("/brand/conexium-logo-white.svg")} alt={site.name} class="h-9 w-auto max-w-[170px]" width="170" height="38" />
+      <img src={withBase("/brand/logo-conexium-white.png")} alt={site.name} class="h-8 md:h-9 w-auto object-contain max-w-[190px] md:max-w-[210px]" width="210" height="70" />
     </a>
 
-    <!-- Desktop Nav: Início | Quem somos | Serviços | Casos e insights | Contato com gap de 34px -->
-    <nav class="hidden items-center gap-[34px] md:flex" aria-label="Navegação principal">
+    <!-- Desktop Nav: Início | Quem somos | Serviços | Casos e insights | Contato com gap rigoroso -->
+    <nav class="hidden items-center gap-[32px] lg:gap-[38px] md:flex" aria-label="Navegação principal">
       {navItems.map((item) => (
         <a
           href={withBase(item.href)}
           class:list={[
-            "relative text-[14px] font-medium transition-colors hover:text-white",
-            isActive(item.href) ? "text-white" : "text-[#747C78]/90 hover:text-[#F7F4ED]",
+            "relative text-[13.5px] font-medium tracking-[0.01em] transition-colors hover:text-white",
+            isActive(item.href) ? "text-white font-semibold" : "text-[#A7ACA8] hover:text-[#F7F4EC]",
           ]}
           aria-current={isActive(item.href) ? "page" : undefined}
         >
           {item.label}
           {isActive(item.href) && (
-            <span class="absolute -bottom-2.5 left-0 h-[2px] w-full rounded-full bg-[#DEA945]" aria-hidden="true" />
+            <span class="absolute -bottom-2 left-0 h-[2px] w-full rounded-full bg-[#C79A3B]" aria-hidden="true" />
           )}
         </a>
       ))}
     </nav>
 
-    <!-- Header CTA: 44px de altura, 24px de padding -->
+    <!-- Header CTA: 42px de altura, presença premium -->
     <div class="hidden items-center md:flex">
       <a
         href={withBase("/contato/")}
@@ -63,14 +63,14 @@ function isActive(href: string) {
   </div>
 
   <!-- Mobile Nav Panel -->
-  <nav id="mobile-menu" class="hidden border-t border-white/10 bg-[#00211D] px-6 pb-6 pt-4 shadow-2xl md:hidden" aria-label="Navegação móvel" data-mobile-menu>
+  <nav id="mobile-menu" class="hidden border-t border-white/10 bg-[#042923] px-6 pb-6 pt-4 shadow-2xl md:hidden" aria-label="Navegação móvel" data-mobile-menu>
     <div class="flex flex-col gap-2.5">
       {navItems.map((item) => (
         <a
           href={withBase(item.href)}
           class:list={[
             "rounded-md px-3 py-2.5 text-sm font-medium transition",
-            isActive(item.href) ? "bg-[#002822] text-[#DEA945]" : "text-white/80 hover:bg-white/5 hover:text-white",
+            isActive(item.href) ? "bg-[#08332C] text-[#C79A3B]" : "text-white/80 hover:bg-white/5 hover:text-white",
           ]}
           aria-current={isActive(item.href) ? "page" : undefined}
         >
@@ -94,11 +94,11 @@ function isActive(href: string) {
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 20) {
-      header?.classList.add("bg-[#001916]/96");
-      header?.classList.remove("bg-[#001916]/85");
+      header?.classList.add("bg-[#001F1A]/98", "shadow-md");
+      header?.classList.remove("bg-[#001F1A]/90");
     } else {
-      header?.classList.remove("bg-[#001916]/96");
-      header?.classList.add("bg-[#001916]/85");
+      header?.classList.remove("bg-[#001F1A]/98", "shadow-md");
+      header?.classList.add("bg-[#001F1A]/90");
     }
   }, { passive: true });
 

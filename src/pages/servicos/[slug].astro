@@ -28,17 +28,22 @@ const breadcrumbJsonLd = {
   jsonLd={breadcrumbJsonLd}
 >
   <!-- Hero Section -->
-  <section class="border-b border-white/10 bg-[#001816] py-20 text-white">
-    <div class="cx-shell">
+  <section class="relative isolate overflow-hidden border-b border-white/[0.08] bg-[#001F1A] py-20 text-white font-sans-tech">
+    <div class="pointer-events-none absolute inset-0 tech-grid-pattern opacity-50" aria-hidden="true"></div>
+
+    <div class="cx-shell relative z-10">
       <div class="grid items-center gap-10 lg:grid-cols-2">
         <div>
-          <p class="text-xs font-bold tracking-[0.2em] text-[#E6B64C] uppercase">
-            {service.eyebrow}
-          </p>
-          <h1 class="font-serif-display mt-4 text-[clamp(2.2rem,3.4vw,3.2rem)] leading-tight text-white">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+            <p class="text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] text-[#C79A3B] uppercase">
+              {service.eyebrow}
+            </p>
+          </div>
+          <h1 class="font-serif-display text-[clamp(2.2rem,3.4vw,3.2rem)] leading-tight text-white">
             {service.title}
           </h1>
-          <p class="mt-4 max-w-xl text-base leading-relaxed text-[#D8D8D5]/90">
+          <p class="mt-4 max-w-xl text-[15px] leading-relaxed text-[#F7F4EC]/85">
             {service.description}
           </p>
           <div class="mt-8 flex flex-wrap gap-4">
@@ -51,7 +56,7 @@ const breadcrumbJsonLd = {
           </div>
         </div>
 
-        <div class="h-[300px] sm:h-[380px] overflow-hidden rounded-xl bg-[#001D1B] shadow-xl">
+        <div class="h-[300px] sm:h-[380px] overflow-hidden rounded-[8px] bg-[#042923] shadow-xl border border-white/[0.08]">
           <img
             src={withBase(service.image)}
             alt={service.title}
@@ -66,22 +71,25 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- Escopo e Atuação -->
-  <section class="bg-[#FAF8F3] py-20 text-[#303735]">
+  <section class="bg-[#F7F4EC] py-20 text-[#18211F] font-sans-tech">
     <div class="cx-shell">
       <div class="grid gap-12 lg:grid-cols-[40%_60%]">
         <div>
-          <p class="text-xs font-bold tracking-[0.16em] text-[#D7A536] uppercase">
-            ESCOPO DE ATUACAO
-          </p>
-          <h2 class="font-serif-display mt-3 text-2xl lg:text-3xl text-[#001816]">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="inline-block h-[1px] w-4 bg-[#C79A3B]" aria-hidden="true"></span>
+            <p class="text-[11px] font-bold tracking-[0.16em] text-[#C79A3B] uppercase">
+              ESCOPO DE ATUAÇÃO
+            </p>
+          </div>
+          <h2 class="font-serif-display text-2xl lg:text-3xl text-[#001F1A]">
             Atuação técnica especializada e fundamentada.
           </h2>
-          <p class="mt-4 text-sm leading-relaxed text-[#303735]/85">
+          <p class="mt-4 text-[14px] leading-relaxed text-[#18211F]/75">
             Cada análise e estudo é desenvolvido com base em normas vigentes, evidências técnicas e responsabilidade profissional.
           </p>
-          <div class="mt-6 rounded-lg border border-[#D8D8D5]/80 bg-white p-5 shadow-sm">
-            <p class="text-xs font-bold uppercase tracking-wider text-[#001816]">Responsabilidade Técnica</p>
-            <p class="mt-2 text-xs leading-relaxed text-[#303735]/80">
+          <div class="mt-6 rounded-[8px] border border-[#18211F]/15 bg-white p-5 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-wider text-[#001F1A]">Responsabilidade Técnica</p>
+            <p class="mt-2 text-xs leading-relaxed text-[#18211F]/75">
               {service.note}
             </p>
           </div>
@@ -89,10 +97,10 @@ const breadcrumbJsonLd = {
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {service.scope.map((item) => (
-            <div class="rounded-lg border border-[#D8D8D5]/60 bg-white p-5 shadow-sm">
+            <div class="rounded-[8px] border border-[#18211F]/10 bg-white p-5 shadow-sm">
               <div class="flex items-start gap-3">
-                <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#D7A536]"></span>
-                <p class="text-xs font-medium leading-relaxed text-[#303735]">{item}</p>
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C79A3B]"></span>
+                <p class="text-[13px] font-medium leading-relaxed text-[#18211F]">{item}</p>
               </div>
             </div>
           ))}
@@ -102,21 +110,21 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- Quando Contratar & Entregáveis -->
-  <section class="border-y border-white/10 bg-[#001D1B] py-20 text-white">
+  <section class="border-y border-white/[0.08] bg-[#042923] py-20 text-white font-sans-tech">
     <div class="cx-shell">
       <div class="grid gap-12 lg:grid-cols-2">
         <!-- Quando Contratar -->
         <div>
-          <p class="text-xs font-bold tracking-[0.16em] text-[#E6B64C] uppercase">
+          <p class="text-[11px] font-bold tracking-[0.16em] text-[#C79A3B] uppercase">
             QUANDO CONTRATAR
           </p>
           <h2 class="font-serif-display mt-3 text-2xl text-white">
             Cenários típicos de acionamento
           </h2>
-          <ul class="mt-6 space-y-3 text-sm text-[#D8D8D5]">
+          <ul class="mt-6 space-y-3 text-[13.5px] text-[#A7ACA8]">
             {service.whenToHire.map((item) => (
-              <li class="flex items-start gap-3 rounded-lg border border-white/5 bg-[#002320] p-4">
-                <span class="mt-1 text-[#E6B64C]">✓</span>
+              <li class="flex items-start gap-3 rounded-[8px] border border-white/[0.08] bg-[#001F1A] p-4">
+                <span class="mt-0.5 text-[#C79A3B] font-bold">✓</span>
                 <span class="leading-relaxed">{item}</span>
               </li>
             ))}
@@ -125,16 +133,16 @@ const breadcrumbJsonLd = {
 
         <!-- Entregáveis -->
         <div>
-          <p class="text-xs font-bold tracking-[0.16em] text-[#E6B64C] uppercase">
+          <p class="text-[11px] font-bold tracking-[0.16em] text-[#C79A3B] uppercase">
             ENTREGÁVEIS TÉCNICOS
           </p>
           <h2 class="font-serif-display mt-3 text-2xl text-white">
             Produtos documentais e relatórios
           </h2>
-          <ul class="mt-6 space-y-3 text-sm text-[#D8D8D5]">
+          <ul class="mt-6 space-y-3 text-[13.5px] text-[#A7ACA8]">
             {service.deliverables.map((item) => (
-              <li class="flex items-start gap-3 rounded-lg border border-white/5 bg-[#002320] p-4">
-                <span class="mt-1 text-[#E6B64C]">→</span>
+              <li class="flex items-start gap-3 rounded-[8px] border border-white/[0.08] bg-[#001F1A] p-4">
+                <span class="mt-0.5 text-[#C79A3B] font-bold">→</span>
                 <span class="leading-relaxed">{item}</span>
               </li>
             ))}
@@ -145,10 +153,10 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- Como Trabalhamos -->
-  <section class="bg-[#001816] py-20 text-white">
+  <section class="bg-[#001F1A] py-20 text-white font-sans-tech">
     <div class="cx-shell">
       <div class="text-center max-w-2xl mx-auto">
-        <p class="text-xs font-bold tracking-[0.16em] text-[#E6B64C] uppercase">
+        <p class="text-[11px] font-bold tracking-[0.16em] text-[#C79A3B] uppercase">
           COMO TRABALHAMOS
         </p>
         <h2 class="font-serif-display mt-3 text-2xl sm:text-3xl text-white">
@@ -158,9 +166,9 @@ const breadcrumbJsonLd = {
 
       <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {service.howWeWork.map((step, idx) => (
-          <div class="rounded-lg border border-white/10 bg-[#002320] p-5">
-            <span class="text-xs font-bold text-[#E6B64C]">0{idx + 1}</span>
-            <p class="mt-3 text-xs leading-relaxed text-[#D8D8D5]">{step}</p>
+          <div class="rounded-[8px] border border-white/[0.08] bg-[#042923] p-5">
+            <span class="text-xs font-bold text-[#C79A3B]">0{idx + 1}</span>
+            <p class="mt-3 text-[13px] leading-relaxed text-[#A7ACA8]">{step}</p>
           </div>
         ))}
       </div>
@@ -168,12 +176,12 @@ const breadcrumbJsonLd = {
   </section>
 
   <!-- CTA Final -->
-  <section class="border-t border-white/10 bg-[#001D1B] py-16 text-white text-center">
+  <section class="border-t border-white/[0.08] bg-[#001F1A] py-16 text-white text-center font-sans-tech">
     <div class="cx-shell max-w-3xl">
       <h2 class="font-serif-display text-2xl sm:text-3xl text-white">
         Submeta sua demanda para avaliação técnica
       </h2>
-      <p class="mt-3 text-sm text-[#D8D8D5]">
+      <p class="mt-3 text-[14.5px] text-[#A7ACA8]">
         Nossa equipe de engenharia elétrica retornará com uma leitura inicial objetiva.
       </p>
       <div class="mt-6 flex justify-center gap-4">

@@ -10,20 +10,30 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background-color: var(--brand-950);
-  color: var(--ivory-100);
-  font-family: "Inter", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--conexium-green);
+  color: var(--conexium-ivory);
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* =========================================================================
+   TIPOGRAFIA OFICIAL
+   Source Serif 4: Títulos institucionais, afirmações, H1/H2
+   IBM Plex Sans: Textos, interface, botões, números, metadados
+   ========================================================================= */
 .font-serif-display {
-  font-family: "DM Serif Display", "Georgia", "Times New Roman", serif;
+  font-family: "Source Serif 4", "Georgia", "Times New Roman", serif;
   font-weight: 400;
+  letter-spacing: -0.015em;
 }
 
-/* Global Container adhering to exact 1320px specification */
+.font-sans-tech {
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Global Container Rigoroso */
 .cx-shell {
   width: min(calc(100% - 96px), 1320px);
   margin-inline: auto;
@@ -38,54 +48,86 @@ body {
 
 @media (max-width: 768px) {
   .cx-shell {
-    padding-inline: 32px;
+    padding-inline: 24px;
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 480px) {
   .cx-shell {
-    padding-inline: 20px;
+    padding-inline: 18px;
   }
 }
 
-/* Technical Blueprint Grid Pattern for Brand Authority */
+/* =========================================================================
+   LINGUAGEM GRÁFICA PROPRIETÁRIA (Grid técnico, nós, linhas de engenharia)
+   Opacidade discreta: 3% a 12%
+   ========================================================================= */
 .tech-grid-pattern {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-/* CTAs with authoritative presence */
+.tech-grid-light {
+  background-image:
+    linear-gradient(rgba(24, 33, 31, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 33, 31, 0.035) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* SVG Circuit / Diagram watermark background */
+.circuit-node-pattern {
+  position: relative;
+}
+.circuit-node-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(199, 154, 59, 0.12) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  opacity: 0.7;
+}
+
+/* =========================================================================
+   BOTÕES E SISTEMA DE INTERAÇÃO
+   Primary: #C79A3B (texto: #001F1A)
+   Secondary Dark: transparent + border clara
+   Secondary Light: transparent + border #18211F
+   ========================================================================= */
 .btn-gold {
-  background-color: var(--gold-500);
-  color: #10201C;
+  background-color: var(--conexium-gold);
+  color: var(--conexium-green);
+  font-family: "IBM Plex Sans", sans-serif;
   font-weight: 600;
   font-size: 0.9375rem;
-  height: 52px;
+  letter-spacing: 0.01em;
+  height: 50px;
   padding: 0 28px;
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: all var(--transition);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 31, 26, 0.25);
   border: 1px solid transparent;
 }
 
 .btn-gold:hover {
   background-color: var(--gold-400);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(222, 169, 69, 0.3);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px rgba(199, 154, 59, 0.28);
 }
 
 .btn-secondary-dark {
   background-color: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: var(--conexium-ivory);
+  border: 1px solid rgba(247, 244, 236, 0.30);
+  font-family: "IBM Plex Sans", sans-serif;
   font-weight: 500;
   font-size: 0.9375rem;
-  height: 52px;
+  height: 50px;
   padding: 0 28px;
   border-radius: var(--radius-sm);
   display: inline-flex;
@@ -95,19 +137,44 @@ body {
 }
 
 .btn-secondary-dark:hover {
-  border-color: var(--white);
-  background-color: rgba(255, 255, 255, 0.06);
-  transform: translateY(-1px);
+  border-color: var(--conexium-gold);
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1.5px);
+}
+
+.btn-secondary-light {
+  background-color: transparent;
+  color: var(--conexium-graphite);
+  border: 1px solid rgba(24, 33, 31, 0.35);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  height: 50px;
+  padding: 0 28px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+
+.btn-secondary-light:hover {
+  border-color: var(--conexium-green);
+  color: var(--conexium-green);
+  background-color: rgba(0, 31, 26, 0.04);
+  transform: translateY(-1.5px);
 }
 
 /* Header Action Button */
 .btn-header-cta {
-  background-color: var(--gold-500);
-  color: #10201C;
+  background-color: var(--conexium-gold);
+  color: var(--conexium-green);
+  font-family: "IBM Plex Sans", sans-serif;
   font-weight: 600;
   font-size: 0.875rem;
-  height: 44px;
-  padding: 0 24px;
+  height: 42px;
+  padding: 0 22px;
   border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
@@ -120,29 +187,49 @@ body {
   transform: translateY(-1px);
 }
 
-/* Service Card Design */
+/* =========================================================================
+   CARDS EDITORIAL PREMIUM (Sem excesso de arredondamento ou sombras de SaaS)
+   ========================================================================= */
 .cx-service-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.010));
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: var(--radius-md);
   overflow: hidden;
-  min-height: 510px;
-  transition: transform var(--transition), border-color var(--transition);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
 .cx-service-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(222, 169, 69, 0.4);
+  border-color: var(--border-gold);
+  box-shadow: 0 12px 30px rgba(0, 31, 26, 0.35);
+}
+
+.cx-service-card img {
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cx-service-card:hover img {
+  transform: scale(1.02);
 }
 
 /* Subtle reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(14px);
+  transition: opacity 500ms ease, transform 500ms ease;
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

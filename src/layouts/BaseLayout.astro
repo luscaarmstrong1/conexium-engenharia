@@ -64,7 +64,7 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
       content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https: http://127.0.0.1:* http://localhost:* ws://127.0.0.1:* ws://localhost:*; frame-src https://challenges.cloudflare.com; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests;"
     />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#001816" />
+    <meta name="theme-color" content="#001F1A" />
     <meta property="og:type" content={ogType} />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:site_name" content={site.name} />
@@ -77,43 +77,53 @@ const jsonPayload = [organizationJsonLd, serviceJsonLd, ...(Array.isArray(jsonLd
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href={withBase("/brand/favicon.png")} />
     <link rel="icon" type="image/svg+xml" href={withBase("/brand/conexium-favicon.svg")} />
-    <link rel="apple-touch-icon" href={withBase("/brand/conexium-favicon.svg")} />
+    <link rel="apple-touch-icon" href={withBase("/brand/conexium-symbol.png")} />
     <link rel="manifest" href={withBase("/manifest.webmanifest")} />
     <title>{pageTitle}</title>
 
-    <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={withBase("/fonts/dm-serif-display-latin.woff2")} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={withBase("/fonts/source-serif-4-latin.woff2")} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={withBase("/fonts/ibm-plex-sans-latin-400.woff2")} as="font" type="font/woff2" crossorigin />
 
     <style is:inline set:html={`
       @font-face {
-        font-family: "DM Serif Display";
+        font-family: "Source Serif 4";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 400 700;
         font-display: swap;
-        src: url("${withBase("/fonts/dm-serif-display-latin.woff2")}") format("woff2");
+        src: url("${withBase("/fonts/source-serif-4-latin.woff2")}") format("woff2");
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       @font-face {
-        font-family: "DM Serif Display";
+        font-family: "Source Serif 4";
         font-style: normal;
-        font-weight: 400;
+        font-weight: 400 700;
         font-display: swap;
-        src: url("${withBase("/fonts/dm-serif-display-latin-ext.woff2")}") format("woff2");
-        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        src: url("${withBase("/fonts/source-serif-4-latin-ext.woff2")}") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
       }
       @font-face {
-        font-family: "Inter";
+        font-family: "IBM Plex Sans";
         font-style: normal;
-        font-weight: 300 800;
+        font-weight: 300 700;
         font-display: swap;
-        src: url("${fontUrl}") format("woff2");
+        src: url("${withBase("/fonts/ibm-plex-sans-latin-400.woff2")}") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "IBM Plex Sans";
+        font-style: normal;
+        font-weight: 300 700;
+        font-display: swap;
+        src: url("${withBase("/fonts/ibm-plex-sans-latin-ext-400.woff2")}") format("woff2");
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
       }
     `} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonPayload)} />
   </head>
-  <body class="bg-[#001816] text-[#ECEDE9] antialiased">
-    <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-md focus:bg-[#E6B64C] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#001816]">
+  <body class="bg-[#001F1A] text-[#F7F4EC] antialiased">
+    <a href="#conteudo" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-md focus:bg-[#C79A3B] focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-[#001F1A]">
       Pular para o conteúdo
     </a>
     <Header currentPath={path} />
