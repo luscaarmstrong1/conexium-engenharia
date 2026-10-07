@@ -19,8 +19,8 @@ export const site = {
     "A atuação em perícias, quesitos e pareceres é de natureza técnica, limitada ao campo da engenharia elétrica. Demandas jurídicas, peticionamento e estratégia processual devem ser conduzidos por advogado habilitado.",
   url: import.meta.env.PUBLIC_SITE_URL || "https://conexium-engenharia.vercel.app",
   repositoryUrl: "https://github.com/luscaarmstrong1/conexium-engenharia",
-  email: "contato@conexiumengenharia.com.br",
-  directEmail: "lucas@conexiumengenharia.com.br",
+  email: "conexiumengenharia@gmail.com",
+  directEmail: "conexiumengenharia@gmail.com",
   phone: "+55 11 3842-9930",
   phoneDisplay: "+55 11 3842-9930",
 };
