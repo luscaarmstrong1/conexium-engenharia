@@ -124,7 +124,9 @@ const breadcrumbJsonLd = {
           <ul class="mt-6 space-y-3 text-[13.5px] text-[#A7ACA8]">
             {service.whenToHire.map((item) => (
               <li class="flex items-start gap-3 rounded-[8px] border border-white/[0.08] bg-[#001F1A] p-4">
-                <span class="mt-0.5 text-[#C79A3B] font-bold">✓</span>
+                <svg class="mt-0.5 h-4 w-4 shrink-0 text-[#C79A3B]" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
                 <span class="leading-relaxed">{item}</span>
               </li>
             ))}
