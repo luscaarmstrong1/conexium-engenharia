@@ -116,7 +116,7 @@ export const servicePages = [
       "Análise de processos e pleitos de conexão à rede",
       "Análise técnica de documentos e pareceres de distribuidoras",
       "Conexão de geração distribuída e avaliação de orçamentos de conexão",
-      "Inversão de fluxo e alternativas técnicas regulatórias",
+      "Estudos de viabilidade técnica de conexão e alternativas de escoamento",
       "Contestações, manifestações técnicas e respostas a distribuidoras",
       "Memórias de cálculo e notas técnicas fundamentadas",
       "Suporte técnico em exigências, fiscalizações, ANEEL, PRODIST e REN 1.000/2021",
@@ -124,7 +124,7 @@ export const servicePages = [
     scope: [
       "Interpretação regulatória e enquadramento normativo perante ANEEL e PRODIST",
       "Auditoria de pareceres de acesso e orçamentos de conexão emitidos por distribuidoras",
-      "Avaliação técnica de alegações de inversão de fluxo e critérios de gratuidade/encargo",
+      "Avaliação de restrições de rede, critérios de gratuidade e encargos de conexão",
       "Estruturação de contestações técnico-administrativas e pedidos de reconsideração",
       "Respostas fundamentadas a exigências, notificações e fiscalizações de concessionárias",
       "Elaboração de notas técnicas e memórias de cálculo para subsídio decisório",
@@ -132,7 +132,7 @@ export const servicePages = [
     ],
     whenToHire: [
       "Recebimento de parecer de acesso com obras vultosas, prazos excessivos ou negativas",
-      "Alegação de inversão de fluxo de potência sem fundamentação transparente da distribuidora",
+      "Restrições técnicas ou exigências de rede sem fundamentação transparente da distribuidora",
       "Necessidade de contestação técnica junto à ouvidoria da concessionária ou ANEEL",
       "Dúvidas sobre legalidade ou coerência técnica de exigências feitas pela distribuidora",
       "Necessidade de parecer técnico-regulatório independente para investidores ou clientes",
